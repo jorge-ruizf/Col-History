@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>ColHistory 2.0|nivel1</title>
+	<link rel="icon" href="img/logosimp.png">
+	<style type="text/css">
+		body{
+		    background-image:url("img/fondo1.png"); 
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		    background-attachment: fixed;
+		    background-position: center center;
+		    font-family: cursive;
+		    padding: 5px;
+
+		}
+		div#header {
+		    text-indent: 16em;
+		}
+		._jeb {
+		    transition: 1s;
+		    animation-duration: 5s;
+		    animation-name: _jeb;
+		    animation-iteration-count: infinite;
+		}
+
+		@keyframes _jeb {
+		    0% {
+		        color: blue;
+		    }
+
+		    50% {
+		        color: red;
+		    }
+
+		    100% {
+		        color: blue;
+		    }
+		}
+		.boton{
+		    background-color: white;
+		    padding: 5px;
+		    border-radius: 5px;
+		    border: 2px black dashed;
+		    text-decoration: none;
+		    background-size: cover;
+		    text-decoration: none;
+		    color: rgb(0, 0, 0);
+		    font-size: 20px;
+		    transition: 0.5s;
+		}
+
+		.boton:hover{
+			filter: invert(100%);
+		}
+
+		#sig{
+			display: none;
+		}
+
+		div#CentroControl{
+		    position: absolute;
+		    left: 42%;
+		}
+
+
+		#comprobar {
+		    display: inline-flex;
+		    align-items: center;
+		    justify-content: center;
+		    width: 235px;
+		    height: 50px;
+		    background: #141414;
+		    color: #fff;
+		    font-family: cursive;
+		    font-size: 20px;
+		    font-weight: 500;
+		    border: none;
+		    cursor: pointer;
+		    transition: .3s ease all;
+		    border-radius: 7px;
+		    position: relative;
+		    overflow: hidden;
+		}
+
+		#comprobar span{
+		    position: relative;
+		    z-index: 2;
+		    transition: .3s ease all;
+		}
+
+		#comprobar::after{
+		    content: "";
+		    width: 100%;
+		    position: absolute;
+		    z-index: 1;
+		    top: 0;
+		    left: calc(-100% - 80px);
+		    border-right: 50px solid transparent;
+		    border-bottom: 50px solid #286cff;
+		    
+		    transition: .4s ease-in-out all;
+		}
+
+		#comprobar:hover::after {
+		    left: 0;
+		}
+
+		._jeb {
+		    transition: 1s;
+		    animation-duration: 5s;
+		    animation-name: _jeb;
+		    animation-iteration-count: infinite;
+		}
+
+		.Res{
+			/*background-color: red;*/
+			width: 600px;
+			transition: .5s;
+		}
+
+		.Res:hover{
+			transform: scale(1.01);
+			margin-left: 10px;
+			cursor: pointer;
+			color: darkgoldenrod;
+		}
+
+		#Res1A{
+			width: 428px;
+		}
+
+		#Res1B{
+			width: 530px;
+		}
+
+		#Res1C{
+			width: 578px;
+		}
+
+		#Res2A{
+			width: 85px;
+		}
+
+		#Res2B{
+			width: 75px;
+		}
+
+		#Res2C{
+			width: 120px;
+		}
+
+		#Res3A{
+			width: 60px;
+		}
+
+		#Res3B{
+			width: 60px;
+		}
+
+		#Res3C{
+			width: 60px;
+		}
+
+
+
+		div#PrimerBloque{
+			margin-left: 370px;
+		}
+
+		div#SegundoBloque{
+			margin-left: 30px;
+		}
+
+		div#TercerBloque{
+			margin-left: 30px;
+		}
+
+		p#Preg1, p#Preg2, p#Preg3{
+			margin-left: -20px;
+			font-weight: bold;
+			font-size: 20px;
+			-webkit-text-stroke: .4px whitesmoke;
+			color: darkred;
+		}
+
+		img#BanderaPanama{
+			position: absolute;
+			margin-top: 5px;
+			margin-left: 50px;
+		}
+
+		img#Soldados1000d{
+			position: absolute;
+			margin-top: 5px;
+			margin-left: 540px;
+		}
+
+		
+		#irMenu {
+			position: fixed;
+			right: -5px;
+		}
+
+		#irMenuText {
+			position: absolute;
+			z-index: 21;
+			margin-left: 50px;
+			margin-top: 35px;
+			color: white;
+			font-size: 50px;
+			font-weight: bold;
+			-webkit-text-stroke: 1px gray;
+		}
+
+		#banderaC {
+			transform: scaleX(-1);
+			z-index: 20;
+		}
+	</style>
+</head>
+<body>
+	<a id="irMenu" href="menu.html"><div id="irMenuText">menu</div><img src="Bandera de Colombia animada simple.gif" alt="Bandera Colombiana" id="banderaC"></a>
+
+	<div id="header">
+		<h1 class="_jeb">NIVEL 1</h1>
+		<h3 class="_jeb">RESPONDE CORRECTAMENTE</h3>
+	</div>
+	<br>
+	<img src="img/panamaBandera.png" id="BanderaPanama" width="250px">
+	<div id="PrimerBloque">
+		<p id="Preg1">1) ¿Qué representa la bandera de Panamá?</p> <!-- agregar margin bottom -->
+		<p>
+			<div id="Res1A" class="Res" onclick="equivocado(); this.style.textDecoration = 'line-through';">a) Una clara referencia respecto a la bandera colombiana</div>
+		</p>
+		<p>
+			<div id="Res1B" class="Res" onclick="acertado(0);">b) Los colores de los partidos convencionales liberales y conservadores</div>
+		</p>
+		<p>
+			<div id="Res1C" class="Res" onclick="equivocado(); this.style.textDecoration = 'line-through';">c) Hace alusion a la sangre derramada en las multiples guerras por su libertar</div>
+		</p>
+	</div>
+
+	<br>
+
+
+	<img src="img/SoldadosGuerra1000dias.png" id="Soldados1000d" width="700px">
+	<div id="SegundoBloque">
+		<p id="Preg2">2) ¿En dónde fue el primer ataque de la guerra de los mil días?</p> <!-- agregar margin bottom -->
+		<p>
+			<div id="Res2A" class="Res" onclick="equivocado(); this.style.textDecoration = 'line-through';">a) Medellín</div>
+		</p>
+		<p>
+			<div id="Res2B" class="Res" onclick="equivocado(); this.style.textDecoration = 'line-through';">b) Cucuta</div>
+		</p>
+		<p>
+			<div id="Res2C" class="Res" onclick="acertado(1);">c) Bucaramanga</div>
+		</p>
+	</div>
+	
+	<br>
+
+	<div id="TercerBloque">
+		<p id="Preg3">3) ¿En qué fecha los combates disminuyeron?</p> <!-- agregar margin bottom -->
+		<p>
+			<div id="Res3A" class="Res" onclick="acertado(2);">a) 1902</div>
+		</p>
+		<p>
+			<div id="Res3B" class="Res" onclick="equivocado(); this.style.textDecoration = 'line-through';">b) 1948</div>
+		</p>
+		<p>
+			<div id="Res3C" class="Res" onclick="equivocado(); this.style.textDecoration = 'line-through';">c) 2011</div>
+		</p>
+	</div>
+
+
+
+	<div id="sonidos">
+		<!-- <audio id="correcto" src="audio/correcto.mp3" autoplay></audio> -->
+	</div>
+
+
+
+	<div id="CentroControl">
+		<button name="comprobar" id="comprobar"><span>Comprobar</span></button>
+		<br><br>
+		<a class="boton" id="ant" href="pselec.html"><< anterior</a>
+		<a class="boton" id="sig" href="nivel2.html">siguiente >></a>
+	</div>
+	<br><br><br><br><br>
+	<script type="text/javascript" src="javascript/sweetalert.js"></script>
+	<script type="text/javascript">
+		acertadas = [3];
+
+		comprobar = document.getElementById("comprobar");
+		sig = document.getElementById("sig");
+
+		comprobar.addEventListener("click", Comprobar, false);
+
+		function Comprobar(){
+			cond = true;
+			for(i = 0; i < 3; i++){
+				if(acertadas[i] != true){
+					cond = false;
+					break;
+				}
+			}
+
+			if(cond){
+				swal("Primer Nivel Completado", "Ahora solo dale al boton siguiente para continuar", "success", {
+
+					buttons: ["Continuar","Reintentar"]
+
+				});
+				sonidos.innerHTML = "";
+				sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay></audio>`;
+
+				sig.style.display = "inline";
+			} else{
+			swal("¡Comprueba tus respuestas!", "Te has equivocado en al menos una o mas opciones", "warning", {
+
+				buttons: ["Continuar","Reintentar"]
+
+			});
+			sonidos.innerHTML = "";
+			sonidos.innerHTML += `<audio id="erroneo" src="audio/erroneo.mp3" autoplay></audio>`;
+			}
+		}
+
+
+		function acertado(pos){
+			swal("Acertaste", "", "success", {
+
+				buttons: ["Continuar","Reintentar"]
+
+			});
+			sonidos.innerHTML = "";
+			sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay></audio>`;
+
+			acertadas[pos] = true;
+		}
+
+
+		function equivocado(){
+			swal("Te equivocaste", "", "error", {
+
+				buttons: ["Continuar","Reintentar"]
+
+			});
+			sonidos.innerHTML = "";
+			sonidos.innerHTML += `<audio id="erroneo" src="audio/erroneo.mp3" autoplay></audio>`;
+
+			sig.style.display = "none";
+			
+		}
+	</script>
+</body>
+</html>

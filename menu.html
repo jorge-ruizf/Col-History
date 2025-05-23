@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>COL history 2.0|menu</title>
+	<link rel="icon" href="img/logosimp.png">
+	<style type="text/css">
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+		body {
+			background-image:url("img/Fondo Menu/Guatape Fondo de Menu Principal.png"); 
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center center;
+			font-family: cursive;
+			overflow-x: hidden;
+			padding: 0px;
+		}
+
+		div#backgroundF {
+			position: fixed;
+			left: 0px;
+			transition: 1s;
+			animation-duration: 60s;
+			animation-name: Fondo;
+			animation-iteration-count: infinite;
+			z-index: -100;
+		}
+
+		div#backgroundC {
+			background: linear-gradient(225deg, rgba(255,255,255,0) 24%, #526df0 100%);;
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: -10;
+		}
+
+		@keyframes Fondo {
+			0%{
+				transform: scale(1.0);
+			}
+			50%{
+				transform: scale(1.3);
+			}
+			100%{
+				transform: scale(1.0);
+			}
+		}
+
+		div#LineaDeArriba {
+			background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(226,57,57,0.5) 30%, rgba(226,57,57,1) 70%);
+			width: 102%;
+			height: 110px;
+			margin-left: -10px;
+			margin-top: -10px;
+		}
+
+		div.botonesDeBarraSuperior {
+			position: relative;
+			background-color: rgb();
+			transition: .5s;
+			height: 110px;
+			width: 200px;
+			text-align: center;
+			display: inline-block;
+		}
+
+		div#acercaDe {
+			position: absolute;
+			margin-left: 14.6%;
+		}
+
+		div#botonCreditos {
+			position: absolute;
+			margin-left: 29.2%;
+		}
+
+		div#botonIntro {
+			position: absolute;
+			margin-left: auto;
+		}
+
+		p.botonesDeBarraSuperior {
+			font-size: 20px;
+			color: white;
+			text-align: center;
+			margin: auto;
+		}
+
+		img.iconos {
+			filter: invert(100%);
+		}
+
+		div.botonesDeBarraSuperior:hover {
+			background-color: rgb(40, 40, 40);
+		}
+
+		a.botonesDeBarraSuperior {
+			display: inline-block;
+			height: 100%;
+			width: 100%;			
+			text-decoration: none;
+		}
+
+		div#LineaDeAbajo {
+			border-top: 5px gold solid;
+			background: white;
+			position: fixed;
+			bottom: 0px;
+			width: 102%;
+			height: 60px;
+			margin-left: -10px;
+			margin-bottom: -10px;
+		}
+
+		h2 {
+			margin-top: 20px;
+			font-size: 40px;
+			color: black;
+			-webkit-text-stroke: .8px #722f37;
+			display: none;
+		}
+
+		h1 {
+			font-size: 30px;
+			color: black;
+			-webkit-text-stroke: 2px #722f37;
+			text-align: center;
+		}
+
+		p#texto {
+			text-align: center;
+			font-size: 20px;
+			color: black;
+			-webkit-text-stroke: .2px #722f37;
+		}
+
+		h2, h1, p#texto {
+			font-weight: bold;
+			margin-left: 40px;
+		}
+
+		div#ZonaDeTexto{
+			transition: 0.5s;
+			animation-duration: 1.5s;
+			animation-name: Texto;
+			animation-iteration-count: 1;
+
+		}
+
+		@keyframes Texto {
+			from {
+				opacity: 0;
+				transform: translateY(50px);
+			} to{
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+
+
+		.boton{
+			position: absolute;
+			background-color: rgba(250, 250, 250, 0.8);
+			padding: 15px;
+			border-radius: 15px;
+			background-size: cover;
+			text-decoration: none;
+			font-size: 40px;
+			transition: 1s;
+		}
+
+		.boton:hover {
+			transform: scale(1.3);
+		}
+
+		div#botonJugar {
+			position: absolute;
+			left: calc(100%/2 - 176px/2);
+
+			z-index: 20;
+
+		}
+
+		a#botonJugar {
+			font-weight: normal;
+			position: absolute;
+			margin: auto;
+			border: 4px dashed black;
+
+		}
+
+		p#botonJugar {
+			transition: 1.5s;
+		}
+
+		.amarrillo {
+			font-weight: bold;
+			color: gold;
+		}
+
+		.azul {
+			font-weight: bold;
+			color: rgba(24, 50, 196, 1.0);
+		}
+
+		.rojo {
+			font-weight: bold;
+			color: rgba(248, 0, 0, 1.0);
+		}
+
+
+		img.gaitan{
+			position: fixed;
+			right: 50px;
+			bottom: 56px;
+			width: 260px;
+			transition: 0.5s;
+			animation-duration: 1.5s;
+			animation-name: Gaitan;
+			animation-iteration-count: 1;
+		}
+		img.belisario{
+			position: fixed;
+			right: -100px;
+			bottom: 50px;
+			width: 500px;
+			transition: 0.5s;
+			animation-duration: 1.5s;
+			animation-name:belisario;
+			animation-iteration-count: 1;
+		}
+		img.michelsen{
+			position: fixed;
+			right: 20px;
+			bottom: 0px;
+			height: 450px;
+			transition: 0.5s;
+			animation-duration: 1.5s;
+			animation-name: Gaitan;
+			animation-iteration-count: 1;
+		}
+
+
+		@keyframes Gaitan {
+			from {
+				opacity: 0;
+				transform: translateY(50px);
+			} to{
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+		@keyframes belisario {
+			from {
+				opacity: 0;
+				transform: translateY(40px);
+			} to{
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+
+
+
+		#cerrarSesion{
+			position: fixed;
+			background-color: gold;
+			padding: 10px;
+			border-radius: 5px;
+			font-size: 20px;
+			text-decoration: none;
+			color: black;
+			bottom: 30px;
+			
+			margin-left: 50px;
+			transition: .5s;
+			z-index: 20;
+		}
+
+		#cerrarSesion:hover {
+			transform: scale(1.1);
+		}
+		#logo{
+			position: relative;
+			width: 350px;
+			left:500px;
+		}
+
+		#cerrarSesion div{
+			transition: .4s ease-in-out all;
+			position : absolute;
+			left: 30%;
+
+		}
+		#cerrarSesion:hover div{
+			left: 5px;
+		}
+		#cerrarSesion span{
+			color: transparent;
+			display: flex;
+			align-items: center;
+			position: relative;
+			z-index: 2;
+			top: 0;
+			left: -20px;
+			font-size: 15px;
+			opacity: 0;
+			transition: .3s ease-in-out all;
+			margin-left: 40px;
+		}
+		
+		#cerrarSesion:hover span{
+			color: black;
+			left: calc(100% - 85px);
+			opacity: 1;
+			animation-duration: .5s;
+			animation-name: closeSesion;
+			animation-iteration-count: 1;
+
+		}
+		#cerrarSesion:hover{
+			width: 70px;
+		}
+		
+		#cerrarSesion{
+			width: 30px;
+			height: 20px;
+		}
+
+
+		@keyframes closeSesion {
+			0% {
+				color: transparent;
+			}
+
+			80% {
+				color: transparent;
+			}
+
+			100% {
+				color: black;
+			}
+		}
+
+	</style>
+	</head>
+	<body>
+		<!--
+		<div id="fondo">
+			<ul>
+				<li><img src="img/Fondo Menu/Bogota Fondo de Menu Principal.png" alt=""></li>
+				<li><img src="img/Fondo Menu/Lago Fondo de Menu Principal.png" alt=""></li>
+				<li><img src="img/Fondo Menu/Montaña Fondo de Menu Principal.png" alt=""></li>
+				<li><img src="img/Fondo Menu/Quebrada Fondo de Menu Principal.png" alt=""></li>
+				<li><img src="img/Fondo Menu/Guatape Fondo de Menu Principal.png" alt=""></li>
+			</ul>
+		</div>-->
+
+		<div id="backgroundF">
+			<img src="img/Fondo Menu/fondoHistorico.png">
+		</div>
+		<div id="backgroundC"></div>
+
+
+		<div id="LineaDeArriba">
+			<div id="acercaDe" class="botonesDeBarraSuperior">
+				<a href="brochure.html" class="botonesDeBarraSuperior" id="acercaDe">
+					<figure>
+						<img width="60px" class="iconos" src="img/Iconos/IconGrupoNegro.png">
+						<figcaption><p class="botonesDeBarraSuperior" id="acercaDe">Acerca de</p></figcaption>
+					</figure>
+				</a>
+			</div>
+
+			<div id="botonCreditos" class="botonesDeBarraSuperior">
+				<a href="creditos.html" class="botonesDeBarraSuperior" id="botonCreditos">
+					<figure>
+						<img width="60px" class="iconos" src="img/Iconos/IconCopyNegro.png">
+						<figcaption><p class="botonesDeBarraSuperior" id="acercaDe">Creditos</p></figcaption>
+					</figure>
+				</a>
+			</div>
+
+			<div id="botonIntro" class="botonesDeBarraSuperior">
+				<a href="intro.html" class="botonesDeBarraSuperior" id="botonIntro">
+					<figure>
+						<img width="60px" class="iconos" src="img/Iconos/IconPresNegro.png">
+						<figcaption><p class="botonesDeBarraSuperior" id="botonIntro">Introducción</p></figcaption>
+					</figure>
+				</a>
+			</div>
+		</div>
+		<nav>
+
+			<br><br>
+
+			<div id="ZonaDeTexto">
+				<h2>Col History</h2>
+				<img src="img/logomenu.png" id= logo>
+
+				<h1>Mide tus capacidades sobre historia Colombiana</h1>
+
+				<p id="texto">Un espacio libre para estudiantes y público en general!</p>
+
+				<div id="botonJugar">
+					<a class="boton" id="botonJugar" href="pselec.html"><b class="amarrillo">JU</b><b class="azul">GA</b><b class="rojo">R</b></a>
+				</div>
+
+			</div>
+			<br>
+			<br>
+		</nav>
+		<img id="gai" class="gaitan"src="img/gaitan.png">
+		<img id="beli" class="belisario" src="img/belisario1.png">
+		<img id="mic" class="michelsen" src="img/michelsen1.png">
+		<a id="cerrarSesion" href="carga.html"  align="center">
+			<div>
+			    <img id="icono" width="20px" src="img/Iconos/IconSalirNegro.png">
+			</div>
+
+			<span>Salir</span>
+		</a>
+		<div id="LineaDeAbajo"></div>
+		<audio autoplay playsinline>
+			<source src="audio/Mountian King.mp3" type="audio/mp3">
+		</audio>
+	</body>
+<script type="text/javascript" src="javascript/menu.js"></script>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>ColHistory 2.0|nivel5</title>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="icon" href="img/logosimp.png">
+	<style type="text/css">
+
+		body{
+			background-image:url("img/fondo1.png"); 
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center center;
+			font-family: cursive;
+			padding: 5px;
+
+		}
+
+
+		#cab {
+			position: absolute;
+			width: 20px;
+			margin-left: 678.5px;
+			margin-top: -24.5px;
+		}
+
+
+		div#header {
+			text-indent: 16em;
+		}
+
+		.link{
+			text-decoration: none;
+		}
+		.boton{
+			background-color: white;
+			padding: 5px;
+			border-radius: 5px;
+			border: 2px black dashed;
+			text-decoration: none;
+			background-size: cover;
+			text-decoration: none;
+			color: rgb(0, 0, 0);
+			font-size: 20px;
+			transition: 0.5s;
+		}
+
+		.boton:hover {
+			/*color: white;*/
+			/*background-color: black;*/
+			/*border: 2px white dashed;*/
+			filter: invert(100%);
+		}
+
+		div#indicaciones {
+			background-color: rgba(250, 250, 250, 0.4);
+			position: sticky;
+			top: 0px;
+			width: 500px;
+			display: inline-block;
+			margin: auto;
+			padding: 25px;
+			border-radius: 50px;
+		}
+
+		h2 {
+			text-indent: 2em;
+		}
+
+		b {
+			font-weight: normal;
+		}
+
+
+
+
+		div#CentroControl{
+			position: absolute;
+			left: 42%;
+		}
+
+
+		#comprobar {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 235px;
+			height: 50px;
+			background: #141414;
+			color: #fff;
+			font-family: cursive;
+			font-size: 20px;
+			font-weight: 500;
+			border: none;
+			cursor: pointer;
+			transition: .3s ease all;
+			border-radius: 7px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#comprobar span{
+			position: relative;
+			z-index: 2;
+			transition: .3s ease all;
+		}
+
+		#comprobar::after{
+			content: "";
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: calc(-100% - 80px);
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #286cff;
+			
+			transition: .4s ease-in-out all;
+		}
+
+		#comprobar:hover::after {
+			left: 0;
+		}
+
+		._jeb {
+			transition: 1s;
+			animation-duration: 5s;
+			animation-name: _jeb;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes _jeb {
+			0% {
+				color: blue;
+			}
+
+			50% {
+				color: red;
+			}
+
+			100% {
+				color: blue;
+			}
+		}
+
+		#irMenu {
+			position: fixed;
+			right: -5px;
+		}
+
+		#irMenuText {
+			position: absolute;
+			z-index: 21;
+			margin-left: 50px;
+			margin-top: 35px;
+			color: white;
+			font-size: 50px;
+			font-weight: bold;
+			-webkit-text-stroke: 1px gray;
+		}
+
+		#banderaC {
+			transform: scaleX(-1);
+			z-index: 20;
+		}
+
+		#sig {
+			display: none;
+		}
+
+		#mapa {
+			margin-left: calc(50% - 230px);
+		}
+
+	</style>
+	</head>
+	<body>
+		<a id="irMenu" href="menu.html"><div id="irMenuText">menu</div><img src="Bandera de Colombia animada simple.gif" alt="Bandera Colombiana" id="banderaC"></a>
+		<div id="header">
+			<h1 class="_jeb">NIVEL 5</h1>
+			<h3 class="_jeb">LLEGA A LA SALIDA</h3>
+		</div>
+
+		<img src="img/caballo/Laberinto5.png" width="500px" id="mapa">
+		
+		<div id="Cab">
+			<img src="img/caballo/cabD.png" id="cab" width="10px">
+		</div>
+		<div id="CentroControl">
+			<button name="comprobar" id="comprobar"><span>Comprobar</span></button>
+			<br><br>
+			<a class="boton" id="ant" href="nivel4.html"><< anterior</a>
+			<a class="boton" id="sig" href="nivel6.html">siguiente >></a>
+		</div>
+
+		<div id="sonidos">
+			<!-- <audio id="correcto" src="audio/correcto.mp3" autoplay></audio> -->
+		</div>
+
+		<script type="text/javascript">
+
+			let comprobar = document.getElementById("comprobar");
+			let sig = document.getElementById("sig");
+			
+			cab = document.getElementById("cab");
+			Cab = document.getElementById("Cab");
+			posX = 678.5;
+			posY = -24.5;
+
+
+
+
+			function meta() {
+				// if (posX >= 520 && posX <= 570 && posY >= 290 && posY <= 400) {
+				// 	alert("ganaste");
+				// }
+				if (posX == 645.5 && posY == -503.5) {
+					acertado();
+				}
+			}
+
+			
+			function noUsare(){
+				// Para Las X
+				if (posY < -56 && posY > -58 && posX > 678.4 && posX < 846);
+				if (posY < -106 && posY > -110 && posX > 844 && posX < 880);
+				if (posY < -256 && posY > -260 && posX > 827 && posX < 880);
+
+
+
+
+				if (posY < -56 && posY > -58 && posX > 678.4 && posX < 846 || posY < -106 && posY > -110 && posX > 844 && posX < 880) {}
+
+				// Para Las Y
+				if (posX > 677 && posX < 680 && posY < -7.9 && posY > -74.6);
+				if (posX > 844 && posX < 850 && posY < -56 && posY > -109);
+				if (posX > 874 && posX < 880 && posY < -56 && posY > -259);
+				if (posX > 874 && posX < 880 && posY < -56 && posY > -259);
+
+
+
+
+				if (posX > 677 && posX < 680 && posY < -7.9 && posY > -74.6 || posX > 844 && posX < 850 && posY < -56 && posY > -109 || posX > 874 && posX < 880 && posY < -56 && posY > -259) {}
+			}
+
+			function prTecla(event) {
+				tecla = event.key;
+				// console.log(tecla)
+				if (tecla == 'd' || tecla == 'D' || tecla == 'ArrowRight'){
+					// Cab.innerHTML = `<img src="cabA.png" id="cab">`;
+					posX += 16.7;
+					cab.style.marginLeft = `${posX}px`;
+					meta();
+				}
+				if (tecla == 'a' || tecla == 'A' || tecla == 'ArrowLeft'){
+					posX -= 16.7;
+					cab.style.marginLeft = `${posX}px`;
+					meta();
+				}
+				if (tecla == 's' || tecla == 'S' || tecla == 'ArrowDown'){
+					posY += 16.7;
+					cab.style.marginTop = `${posY}px`;
+					meta();
+				}
+				if (tecla == 'w' || tecla == 'W' || tecla == 'ArrowUp'){
+					posY -= 16.7;cab.style.marginTop = `${posY}px`;
+					meta();
+				}
+
+				console.log(` || posX == ${posX} && posY == ${posY}`);
+			}
+
+
+			function acertado(){
+				swal("Acertaste", "", "success", {
+
+					buttons: ["Continuar","Reintentar"]
+
+				});
+				sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay></audio>`;
+
+				// setTimeout( function() { window.location.href = "https://professor-falken.com"; }, 5000 );
+
+				sig.style.display = "inline";
+			}
+
+
+			// window.onkeydown = prTecla();
+
+			document.addEventListener("keydown",prTecla);
+
+		</script>
+	</body>
+</html>

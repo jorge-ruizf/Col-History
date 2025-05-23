@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>ColHistory 2.0|nivel4</title>
+	<link rel="icon" href="img/logosimp.png">
+	<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+	<script type="text/javascript" src="javascript/sweetalert.js"></script>
+	<style type="text/css">
+		body{
+			background-image:url("img/fondo1.png"); 
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center center;
+			font-family: cursive;
+			padding: 5px;
+
+		}
+
+		/*#despues{
+			opacity: 0;
+			cursor: default;
+		}*/
+
+		div#header {
+			text-indent: 16em;
+		}
+
+		.link{
+			text-decoration: none;
+		}
+		.boton{
+			background-color: white;
+			padding: 5px;
+			border-radius: 5px;
+			border: 2px black dashed;
+			text-decoration: none;
+			background-size: cover;
+			text-decoration: none;
+			color: rgb(0, 0, 0);
+			font-size: 20px;
+			transition: 0.5s;
+		}
+
+		.boton:hover {
+			/*color: white;*/
+			/*background-color: black;*/
+			/*border: 2px white dashed;*/
+			filter: invert(100%);
+		}
+
+		div#indicaciones {
+			background-color: rgba(250, 250, 250, 0.4);
+			position: sticky;
+			top: 0px;
+			width: 500px;
+			display: inline-block;
+			margin: auto;
+			padding: 25px;
+			border-radius: 50px;
+		}
+
+		h2 {
+			text-indent: 2em;
+		}
+
+		b {
+			font-weight: normal;
+		}
+
+		.amarrillo {
+			color: yellow;
+		}
+
+		.rojo {
+			color: red;
+		}
+
+		.azul {
+			color: blue;
+		}
+
+
+		.casilla {
+			width: 30px;
+			height: 30px;
+			text-align: center;
+		}
+
+		table {
+			margin-left: 50px;
+			width: 590px;
+			display: inline-block;
+		}
+
+		div#tabla {
+			position: absolute;
+			margin-top: -500px;
+			margin-left: 550px;
+		}
+
+		div#espacioPorDebajo {
+			margin-bottom: 300px;
+		}
+
+
+		img#home {
+			width: 15px;
+		}
+
+		div#CentroControl{
+			position: absolute;
+			left: 42%;
+		}
+
+
+		#comprobar {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 235px;
+			height: 50px;
+			background: #141414;
+			color: #fff;
+			font-family: cursive;
+			font-size: 20px;
+			font-weight: 500;
+			border: none;
+			cursor: pointer;
+			transition: .3s ease all;
+			border-radius: 7px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#comprobar span{
+			position: relative;
+			z-index: 2;
+			transition: .3s ease all;
+		}
+
+		#comprobar::after{
+			content: "";
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: calc(-100% - 80px);
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #286cff;
+			
+			transition: .4s ease-in-out all;
+		}
+
+		#comprobar:hover::after {
+			left: 0;
+		}
+
+
+		img#gif {
+			position: absolute;
+			margin-top: -250px;
+			margin-left: 50px;
+		}
+
+
+		._jeb {
+			transition: 1s;
+			animation-duration: 5s;
+			animation-name: _jeb;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes _jeb {
+			0% {
+				color: blue;
+			}
+
+			50% {
+				color: red;
+			}
+
+			100% {
+				color: blue;
+			}
+		}
+
+
+		.contenedor {
+			width: 1200px;
+			margin: auto;
+			padding: 100px 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.contenedor-botones {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 40px;
+		}
+
+		#irMenu {
+			position: fixed;
+			right: -5px;
+		}
+
+		#irMenuText {
+			position: absolute;
+			z-index: 21;
+			margin-left: 50px;
+			margin-top: 35px;
+			color: white;
+			font-size: 50px;
+			font-weight: bold;
+			-webkit-text-stroke: 1px gray;
+		}
+
+		#banderaC {
+			transform: scaleX(-1);
+			z-index: 20;
+		}
+
+		#sig {
+			display: none;
+		}
+
+
+
+
+		#semiFondo{
+			z-index: 40;
+			position: fixed;
+			width: 100%;
+			/*height: 657px;*/
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(14, 14, 14, .3);
+		}
+
+
+
+		#pregunta1 {
+			z-index: 41;
+			position: fixed;
+			width: 800px;
+			height: 500px;
+			background-color: white;
+			border-radius: 30px;
+			left: calc(50% - 400px);
+			top: 78.55px;
+		}
+
+
+		div#duda {
+			position: fixed;
+			bottom: 5px;
+			left: 5px;
+		}
+
+		img#duda {
+			width: 40px;
+			filter: invert(100%);
+		}
+
+		div#noDuda {
+			position: absolute;
+			text-align: center;
+			width: 250px;
+			margin-left: 275px;
+			margin-top: 425px;
+		}
+
+		img#InfoPart1 {
+			position: absolute;
+			margin-top: 50px;
+			margin-left: 25px;
+			width: 500px;
+		}
+
+		img#InfoPart2 {
+			position: absolute;
+			margin-top: 180px;
+			margin-left: 425px;
+			width: 350px;
+		}
+
+		img#InfoPart3 {
+			position: absolute;
+			margin-top: 300px;
+			margin-left: 50px;
+			width: 200px;
+		}
+
+		div#InfoText1 {
+			position: absolute;
+			margin-top: 83px;
+			margin-left: 540px;
+		}
+
+		div#InfoText2 {
+			position: absolute;
+			margin-top: 200px;
+			margin-left: 50px;
+			width: 550px;
+			text-align: right;
+		}
+
+		div#InfoText3 {
+			position: absolute;
+			margin-top: 325px;
+			margin-left: 270px;
+		}
+
+
+
+	</style>
+	</head>
+	<body>
+		<!-- 14 de largo y  22 de alto crucigrama-->
+
+		<div id="espacioDuda"></div>
+		
+		<a id="irMenu" href="menu.html"><div id="irMenuText">menu</div><img src="Bandera de Colombia animada simple.gif" alt="Bandera Colombiana" id="banderaC"></a>
+
+		<div id="header">
+			<h1 class="_jeb">NIVEL 4</h1>
+			<h3 class="_jeb">COMPLETA EL CRUCIGRAMA</h3>
+		</div>
+		<div id="contenedor">
+			<div id="indicaciones">
+				<h2><b class="rojo">Horizontales</b></h2>
+				<p><b class="rojo">1.</b> El antagonista de los conservadores (plural)</p>
+				<p><b class="rojo">3.</b> Paso despues del asesinato de Jorge Eliecer Gaitan en 1948 (singular)</p>
+				<p><b class="rojo">4.</b> Capital del Valle del cauca (singular)<p>
+				<p><b class="rojo">7.</b> Grupos armados que participaron en las guerras civiles de Colombia y en La Violencia Bipartista (plural)</p>
+				<h2><b class="azul">Verticales</b></h2>
+				<p><b class="azul">2.</b> Lider de la campaña libertadora colombiana (singular)</p>
+				<p><b class="azul">5.</b> En este periodo historico colombiano se presentaron confrontaciones armadas entre partidarios del Partido Liberal y del Partido Conservador (singular)</p>
+				<p><b class="azul">6.</b> Lideraron al pais desde 1886 hasta 1930 (plural)</p>
+			</div>
+
+			<!-- onkeyup sacado de:		http://www.forosdelweb.com/f13/salto-automatico-siguiente-input-303713/-->
+			
+ 			<div id="tabla">
+				<table id="Crucigrama">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td align="center">2</td>
+					</tr>
+					<tr>
+						<td align="right">1</td>
+						<td>
+							<input type="text" name="A1" class="casilla" maxlength="1" id="A1" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('A2').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="A2" class="casilla" maxlength="1" id="A2" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('A3').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="A3" class="casilla" maxlength="1" id="A3" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('A4').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="A4" class="casilla" maxlength="1" id="A4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('A5').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="A5" class="casilla" maxlength="1" id="A5" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('A6').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="A6" class="casilla" maxlength="1" id="A6" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('A7').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="A7" class="casilla" maxlength="1" id="A7" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('A8').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="A8" class="casilla" maxlength="1" id="A8" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('A9').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="A9" class="casilla" maxlength="1" id="A9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('B9').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="B9" class="casilla" maxlength="1" id="B9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('C9').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="C9" class="casilla" maxlength="1" id="C9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('D9').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="right">3</td>
+						<td>
+							<input type="text" name="D2" class="casilla" maxlength="1" id="D2" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('D3').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="D3" class="casilla" maxlength="1" id="D3" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('D4').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="D4" class="casilla" maxlength="1" id="D4" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('D5').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="D5" class="casilla" maxlength="1" id="D5" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('D6').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="D6" class="casilla" maxlength="1" id="D6" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('D7').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="D7" class="casilla" maxlength="1" id="D7" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('D8').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="D8" class="casilla" maxlength="1" id="D8" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('D9').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="D9" class="casilla" maxlength="1" id="D9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('E9').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="E9" class="casilla" maxlength="1" id="E9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('F9').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="F9" class="casilla" maxlength="1" id="F9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('G9').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="G9" class="casilla" maxlength="1" id="G9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) {
+								if (event.keyCode!=9 && H9.value.length != H9.getAttribute('maxlength')) {
+									getElementById('H9').focus();
+								} else if (event.keyCode!=9 && H9.value.length == H9.getAttribute('maxlength')) {
+									getElementById('Ia9').focus();
+								} }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td align="right">4</td>
+						<td>
+							<input type="text" name="H7" class="casilla" maxlength="1" id="H7" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('H8').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="H8" class="casilla" maxlength="1" id="H8" onkeyup="if (this.value.length == this.getAttribute('maxlength')) {
+								if (event.keyCode!=9 && H9.value.length != this.getAttribute('maxlength')) {
+									getElementById('H9').focus();
+								} else{
+									getElementById('H10').focus();
+								} }">
+						</td>
+<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+						<td>
+							<input type="text" name="H9" class="casilla" maxlength="1" id="H9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) {
+								if (event.keyCode!=9 && G9.value.length == this.getAttribute('maxlength') && Ia9.value.length != this.getAttribute('maxlength') ) {
+									getElementById('Ia9').focus();
+								} else if (event.keyCode!=9 && H8.value.length == this.getAttribute('maxlength')) {
+									getElementById('H10').focus();
+								} }">
+						</td>
+						<td>
+							<input type="text" name="H10" class="casilla" maxlength="1" id="H10" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J5').focus(); } }">
+						</td>
+						<td align="center">5</td>
+						<td></td>
+						<td></td>
+						<td align="center">6</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="Ia9" class="casilla" maxlength="1" id="Ia9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('Ib9').focus(); } }">
+						</td>
+						<td></td>
+						<td>
+							<input type="text" name="Ia11" class="casilla" maxlength="1" id="Ia11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('Ib11').focus(); } }">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="Ia14" class="casilla" maxlength="1" id="Ia14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('Ib14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="Ib9" class="casilla" maxlength="1" id="Ib9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('Ic9').focus(); } }">
+						</td>
+						<td></td>
+						<td>
+							<input type="text" name="Ib11" class="casilla" maxlength="1" id="Ib11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('Ic11').focus(); } }">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="Ib14" class="casilla" maxlength="1" id="Ib14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('Ic14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="Ic9" class="casilla" maxlength="1" id="Ic9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J9').focus(); } }">
+						</td>
+						<td></td>
+						<td>
+							<input type="text" name="Ic11" class="casilla" maxlength="1" id="Ic11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) {
+								if (event.keyCode!=9 && J11.value.length != this.getAttribute('maxlength')) { getElementById('J11').focus();
+								} else if (event.keyCode!=9 && J11.value.length == this.getAttribute('maxlength')) { getElementById('K11').focus();
+								} }">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="Ic14" class="casilla" maxlength="1" id="Ic14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) {
+								if (event.keyCode!=9 && J14.value.length != this.getAttribute('maxlength')) {
+									getElementById('J14').focus();
+								} else{
+									getElementById('K14').focus();
+								} }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td align="right">7</td>
+						<td>
+							<input type="text" name="J5" class="casilla" maxlength="1" id="J5" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J6').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="J6" class="casilla" maxlength="1" id="J6" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J7').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="J7" class="casilla" maxlength="1" id="J7" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J8').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="J8" class="casilla" maxlength="1" id="J8" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J9').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="J9" class="casilla" maxlength="1" id="J9" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J10').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="J10" class="casilla" maxlength="1" id="J10" onkeyup="if (this.value.length == this.getAttribute('maxlength')) {
+								if (event.keyCode!=9 && J11.value.length != this.getAttribute('maxlength')) {
+									getElementById('J11').focus();
+								} else if (event.keyCode!=9 && J11.value.length == this.getAttribute('maxlength')) {
+									getElementById('J12').focus();
+								} }">
+						</td>
+						<td>
+							<input type="text" name="J11" class="casilla" maxlength="1" id="J11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) {
+								if (event.keyCode!=9 && J10.value.length == this.getAttribute('maxlength') && J12.value.length != this.getAttribute('maxlength')) {
+									getElementById('J12').focus();
+								} else if (event.keyCode!=9 && J10.value.length != this.getAttribute('maxlength')) {
+									getElementById('K11').focus();
+								} }">
+						</td>
+						<td>
+							<input type="text" name="J12" class="casilla" maxlength="1" id="J12" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J13').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="J13" class="casilla" maxlength="1" id="J13" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('J14').focus(); } }">
+						</td>
+						<td>
+							<input type="text" name="J14" class="casilla" maxlength="1" id="J14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) {
+								if (event.keyCode!=9 && Ic14.value.length != this.getAttribute('maxlength')) {
+									getElementById('Ia11').focus();
+								} else {
+									getElementById('K14').focus();
+								} }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="K11" class="casilla" maxlength="1" id="K11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('L11').focus(); } }">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="K14" class="casilla" maxlength="1" id="K14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('L14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="L11" class="casilla" maxlength="1" id="L11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('M11').focus(); } }">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="L14" class="casilla" maxlength="1" id="L14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('M14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="M11" class="casilla" maxlength="1" id="M11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('N11').focus(); } }">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="M14" class="casilla" maxlength="1" id="M14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('N14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="N11" class="casilla" maxlength="1" id="N11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('O11').focus(); } }">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="N14" class="casilla" maxlength="1" id="N14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('O14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="O11" class="casilla" maxlength="1" id="O11" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('Ia14').focus(); } }">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="O14" class="casilla" maxlength="1" id="O14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('P14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="P14" class="casilla" maxlength="1" id="P14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('Q14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="Q14" class="casilla" maxlength="1" id="Q14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('R14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="R14" class="casilla" maxlength="1" id="R14" onkeyup="if (this.value.length == this.getAttribute('maxlength')) { if (event.keyCode!=9) { getElementById('S14').focus(); } }">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="S14" class="casilla" maxlength="1" id="S14">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="espacioPorDebajo"></div>
+		<img id="gif" src="img/49-PM-unscreen.gif">
+
+		<div id="duda" onclick="duda()">
+			<img src="img/Iconos/IconPregNegro.png" id="duda">
+		</div>
+
+		<div id="CentroControl">
+			<button name="comprobar" id="comprobar"><span>Comprobar</span></button>
+			<br><br>
+			<a class="boton" id="ant" href="nivel3.html"><< anterior</a>
+			<a class="boton" id="sig" href="nivel5.html">siguiente >></a>
+		</div>
+
+		<br><br><br><br><br>
+		
+		<div id="sonidos">
+			<!-- <audio id="correcto" src="audio/correcto.mp3" autoplay></audio> -->
+		</div>
+		<script type="text/javascript">
+			
+			let valor = 0;
+
+			function iniciar() {
+				// alert("Bienvenido :D!");
+
+				let comprobar = document.getElementById("comprobar");
+				let sig = document.getElementById("sig");
+
+				let A1 = document.getElementById("A1");
+				let A2 = document.getElementById("A2");
+				let A3 = document.getElementById("A3");
+				let A4 = document.getElementById("A4");
+				let A5 = document.getElementById("A5");
+				let A6 = document.getElementById("A6");
+				let A7 = document.getElementById("A7");
+				let A8 = document.getElementById("A8");
+				let A9 = document.getElementById("A9");
+
+				let B9 = document.getElementById("B9");
+				let C9 = document.getElementById("C9");
+
+				let D2 = document.getElementById("D2");
+				let D3 = document.getElementById("D3");
+				let D4 = document.getElementById("D4");
+				let D5 = document.getElementById("D5");
+				let D6 = document.getElementById("D6");
+				let D7 = document.getElementById("D7");
+				let D8 = document.getElementById("D8");
+				let D9 = document.getElementById("D9");
+
+				let E9 = document.getElementById("E9");
+				let F9 = document.getElementById("F9");
+				let G9 = document.getElementById("G9");
+
+				let H7 = document.getElementById("H7");
+				let H8 = document.getElementById("H8");
+				let H9 = document.getElementById("H9");
+				let H10 = document.getElementById("H10");
+
+				let Ia9 = document.getElementById("Ia9");
+				let Ia11 = document.getElementById("Ia11");
+				let Ia14 = document.getElementById("Ia14");
+
+				let Ib9 = document.getElementById("Ib9");
+				let Ib11 = document.getElementById("Ib11");
+				let Ib14 = document.getElementById("Ib14");
+
+				let Ic9 = document.getElementById("Ic9");
+				let Ic11 = document.getElementById("Ic11");
+				let Ic14 = document.getElementById("Ic14");
+
+				let J5 = document.getElementById("J5");
+				let J6 = document.getElementById("J6");
+				let J7 = document.getElementById("J7");
+				let J8 = document.getElementById("J8");
+				let J9 = document.getElementById("J9");
+				let J10 = document.getElementById("J10");
+				let J11 = document.getElementById("J11");
+				let J12 = document.getElementById("J12");
+				let J13 = document.getElementById("J13");
+				let J14 = document.getElementById("J14");
+
+				let K11 = document.getElementById("K11");
+				let K14 = document.getElementById("K14");
+
+				let L11 = document.getElementById("L11");
+				let L14 = document.getElementById("L14");
+
+				// let M11 = document.getElementById("M11");
+				let M14 = document.getElementById("M14");
+
+				let N11 = document.getElementById("N11");
+				let N14 = document.getElementById("N14");
+
+				let O11 = document.getElementById("O11");
+				let O14 = document.getElementById("O14");
+
+				let P14 = document.getElementById("P14");
+
+				let Q14 = document.getElementById("Q14");
+
+				let R14 = document.getElementById("R14");
+
+				let S14 = document.getElementById("S14");
+
+
+
+
+
+				comprobar.addEventListener("click", Comprobar, false);
+
+			}
+
+			function Comprobar() {
+
+				sonidos.innerHTML = ``;
+
+				//Fila 1
+
+				if (A1.value == "L" || A1.value == "l") {
+					valor++;
+				} else {}
+
+				if (A2.value == "I" || A2.value == "i") {
+					valor++;
+				} else {}
+
+				if (A3.value == "B" || A3.value == "b") {
+					valor++;
+				} else {}
+
+				if (A4.value == "E" || A4.value == "e") {
+					valor++;
+				} else {}
+
+				if (A5.value == "R" || A5.value == "r") {
+					valor++;
+				} else {}
+
+				if (A6.value == "A" || A6.value == "a") {
+					valor++;
+				} else {}
+
+				if (A7.value == "L" || A7.value == "l") {
+					valor++;
+				} else {}
+
+				if (A8.value == "E" || A8.value == "e") {
+					valor++;
+				} else {}
+
+				if (A9.value == "S" || A9.value == "s") {
+					valor++;
+				} else {};
+
+				//Fila 2
+
+				if (B9.value == "I" || B9.value == "i") {
+					valor++;
+				} else {};
+
+
+				//Fila 3
+
+				if (C9.value == "M" || C9.value == "m") {
+					valor++;
+				} else {};
+
+				// //Fila 4
+
+				if (D2.value == "B" || D2.value == "b") {
+					valor++;
+				} else {};
+
+				if (D3.value == "O" || D3.value == "o") {
+					valor++;
+				} else {};
+
+				if (D4.value == "G" || D4.value == "g") {
+					valor++;
+				} else {};
+
+				if (D5.value == "O" || D5.value == "o") {
+					valor++;
+				} else {};
+
+				if (D6.value == "T" || D6.value == "t") {
+					valor++;
+				} else {};
+
+				if (D7.value == "A" || D7.value == "a") {
+					valor++;
+				} else {};
+
+				if (D8.value == "Z" || D8.value == "z") {
+					valor++;
+				} else {};
+
+				if (D9.value == "O" || D9.value == "o") {
+					valor++;
+				} else {};
+
+				//Fila 5
+
+				if (E9.value == "N" || E9.value == "n") {
+					valor++;
+				} else {};
+
+				//Fila 6
+
+				if (F9.value == "B" || F9.value == "b") {
+					valor++;
+				} else {};
+
+
+				//Fila 7
+
+				if (G9.value == "O" || G9.value == "o") {
+					valor++;
+				} else {};
+
+				//Fila 8
+
+				if (H7.value == "C" || H7.value == "c") {
+					valor++;
+				} else {};
+
+				if (H8.value == "A" || H8.value == "a") {
+					valor++;
+				} else {};
+
+				if (H9.value == "L" || H9.value == "l") {
+					valor++;
+				} else {};
+
+				if (H10.value == "I" || H10.value == "i") {
+					valor++;
+				} else {};
+
+				// Fila 9
+
+				if (Ia9.value == "I" || Ia9.value == "i") {
+					valor++;
+				} else {}
+
+				if (Ia11.value == "V" || Ia11.value == "v") {
+					valor++;
+				} else {}
+
+				if (Ia14.value == "C" || Ia14.value == "c") {
+					valor++;
+				} else {}
+
+				// Fila 10
+
+				if (Ib9.value == "V" || Ib9.value == "v") {
+					valor++;
+				} else {}
+
+				if (Ib11.value == "I" || Ib11.value == "i") {
+					valor++;
+				} else {}
+
+				if (Ib14.value == "O" || Ib14.value == "o") {
+					valor++;
+				} else {}
+
+				// Fila 11
+
+				if (Ic9.value == "A" || Ic9.value == "a") {
+					valor++;
+				} else {}
+
+				if (Ic11.value == "O" || Ic11.value == "o") {
+					valor++;
+				} else {}
+
+				if (Ic14.value == "N" || Ic14.value == "n") {
+					valor++;
+				} else {}
+
+				// Fila 12
+
+				if (J5.value == "G" || J5.value == "g") {
+					valor++;
+				} else {};
+
+				if (J6.value == "U" || J6.value == "u") {
+					valor++;
+				} else {};
+
+				if (J7.value == "E" || J7.value == "e") {
+					valor++;
+				} else {};
+
+				if (J8.value == "R" || J8.value == "r") {
+					valor++;
+				} else {};
+
+				if (J9.value == "R" || J9.value == "r") {
+					valor++;
+				} else {};
+
+				if (J10.value == "I" || J10.value == "i") {
+					valor++;
+				} else {};
+
+				if (J11.value == "L" || J11.value == "l") {
+					valor++;
+				} else {};
+
+				if (J12.value == "L" || J12.value == "l") {
+					valor++;
+				} else {};
+
+				if (J13.value == "A" || J13.value == "a") {
+					valor++;
+				} else {};
+
+				if (J14.value == "s" || J14.value == "s") {
+					valor++;
+				} else {};
+
+				// Fila 13
+
+				if (K11.value == "E" || K11.value == "e") {
+					valor++;
+				} else {};
+
+				if (K14.value == "E" || K14.value == "e") {
+					valor++;
+				} else {};
+
+				// Fila 14
+
+				if (L11.value == "N" || L11.value == "n") {
+					valor++;
+				} else {};
+
+				if (L14.value == "R" || L14.value == "r") {
+					valor++;
+				} else {};
+
+				// Fila 15
+
+				if (M11.value == "C" || M11.value == "c") {
+					valor++;
+				} else {};
+
+				if (M14.value == "V" || M14.value == "v") {
+					valor++;
+				} else {};
+
+				// Fila 16
+
+				if (N11.value == "I" || N11.value == "i") {
+					valor++;
+				} else {};
+
+				if (N14.value == "A" || N14.value == "a") {
+					valor++;
+				} else {};
+
+				// Fila 17
+
+				if (O11.value == "A" || O11.value == "a") {
+					valor++;
+				} else {};
+
+				if (O14.value == "D" || O14.value == "d") {
+					valor++;
+				} else {};
+
+				// Fila 18
+
+				if (P14.value == "O" || P14.value == "o") {
+					valor++;
+				} else {};
+
+				// Fila 19
+
+				if (Q14.value == "R" || Q14.value == "r") {
+					valor++;
+				} else {};
+
+				// Fila 20
+
+				if (R14.value == "E" || R14.value == "e") {
+					valor++;
+				} else {};
+
+				// Fila 21
+
+				if (S14.value == "S" || S14.value == "s") {
+					valor++;
+				} else {};
+
+
+
+				if (valor >= 59) {
+					acertado();
+				} else if(valor < 59){
+					equivocado();
+				}
+
+				console.log(`${valor}`)
+
+				valor = 0;
+
+			}
+
+			function acertado(){
+				swal("Cuarto Nivel Completado", "Ahora solo dale al boton siguiente para continuar", "success", {
+
+						buttons: ["Continuar","Reintentar"]
+
+				});
+				sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay></audio>`;
+
+				sig.style.display = "inline";
+			}
+
+
+			function equivocado(){
+				swal("¡Comprueba tus respuestas!", "Te has equivocado en al menos una o mas opciones", "warning", {
+
+				buttons: ["Continuar","Reintentar"]
+
+			});
+				sonidos.innerHTML += `<audio id="erroneo" src="audio/erroneo.mp3" autoplay></audio>`;
+
+				sig.style.display = "none";
+			}
+
+
+			espacioDuda = document.getElementById("espacioDuda");
+			function duda(){
+				espacioDuda.innerHTML = `
+					<div id="semiFondo" onclick="noDuda()"></div>
+					<div id="pregunta1">
+						<div id="InfoText1">
+							Guiate de los numeros para poder completar el crucigrama 
+						</div>
+						<div id="InfoText2">
+							Cuando acabes dale al boton "Comprueba", en caso de que tengas algun error comprueba si te equivocaste o si pusiste algun caracter erroneo
+						</div>
+						<div id="InfoText3">
+							En caso contrario si lo completas<br>correctamente podras clickear el boton<br>"siguiente" para pasar al siguiente nivel
+						</div>
+						<!--<div id="InfoText">
+							Primero deberas de seleccionar en la primera fila el primer concepto que quieras conectar
+							<br>
+							Luego lo puedes relacionar haciendo click con otro concepto de la segunda fila
+							<br><br><br><br><br><br><br><br><br>
+							En caso de que te equivoques saldra una alerta que indicara que te equivocaste
+						</div>-->
+						<img id="InfoPart1" src="img/info/nivel4/nivel4part1.png">
+						<img id="InfoPart2" src="img/info/nivel4/nivel4part2.png">
+						<img id="InfoPart3" src="img/info/nivel4/nivel4part3.png">
+						<div class="boton" id="noDuda" onclick="noDuda()">Seguir Jugando</div>
+					</div>`;
+			}
+
+			function noDuda(){
+				espacioDuda.innerHTML = "";
+			}
+
+
+			function prTecla(event) {
+				tecla = event.key;
+				if (tecla == "1") {
+					A1.value = "";
+					A2.value = "";
+					A3.value = "";
+					A4.value = "";
+					A5.value = "";
+					A6.value = "";
+					A7.value = "";
+					A8.value = "";
+					A9.value = "";
+
+					// document.getElementById("A1").focus();
+				}
+				if (tecla == "2") {
+					A9.value = "";
+					B9.value = "";
+					C9.value = "";
+					D9.value = "";
+					E9.value = "";
+					F9.value = "";
+					G9.value = "";
+					H9.value = "";
+					Ia9.value = "";
+					Ib9.value = "";
+					Ic9.value = "";
+					J9.value = "";
+				}
+				if (tecla == "3") {
+					D2.value = "";
+					D3.value = "";
+					D4.value = "";
+					D5.value = "";
+					D6.value = "";
+					D7.value = "";
+					D8.value = "";
+					D9.value = "";
+				}
+				if (tecla == "4") {
+					H7.value = "";
+					H8.value = "";
+					H9.value = "";
+					H10.value = "";
+				}
+				if (tecla == "5") {
+					Ia11.value = "";
+					Ib11.value = "";
+					Ic11.value = "";
+					J11.value = "";
+					K11.value = "";
+					L11.value = "";
+					M11.value = "";
+					N11.value = "";
+					O11.value = "";
+				}
+				if (tecla == "6") {
+					Ia14.value = "";
+					Ib14.value = "";
+					Ic14.value = "";
+					J14.value = "";
+					K14.value = "";
+					L14.value = "";
+					M14.value = "";
+					N14.value = "";
+					O14.value = "";
+					P14.value = "";
+					Q14.value = "";
+					R14.value = "";
+					S14.value = "";
+				}
+				if (tecla == "7") {
+					J5.value = "";
+					J6.value = "";
+					J7.value = "";
+					J8.value = "";
+					J9.value = "";
+					J10.value = "";
+					J11.value = "";
+					J12.value = "";
+					J13.value = "";
+					J14.value = "";
+				}
+				// alert(tecla);
+
+			}
+
+			document.addEventListener("keydown",prTecla);
+			window.addEventListener("load", iniciar, false);
+		</script>
+	</body>
+
+</html>

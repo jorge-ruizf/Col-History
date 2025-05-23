@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Preguntas</title>
+	<style type="text/css">
+		body{
+			padding: 0;
+			margin: 0;
+			font-family: cursive;
+		}
+
+		#semiFondo{
+			position: absolute;
+			width: 100%;
+			height: 657px;
+			background-color: rgba(14, 14, 14, .3);
+		}
+
+		#pregunta1 {
+			position: absolute;
+			width: 800px;
+			height: 500px;
+			background-color: white;
+			border-radius: 30px;
+			margin-left: calc(50% - 400px);
+			margin-top: 78.55px;
+		}
+
+		#elGaitan {
+			position: absolute;
+			margin-left: 500px;
+			margin-top: 200px;
+		}
+
+		#preguntas {
+			margin-left: 50px;
+			margin-top: 100px;
+		}
+
+		#preguntasResponde {
+			font-size: 20px;
+		}
+
+		#ingresoPresi {
+			border: none;
+			border-bottom: 3px solid blue;
+		}
+
+
+
+		#comprobar {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 235px;
+			height: 50px;
+			background: #141414;
+			color: #fff;
+			font-family: cursive;
+			font-size: 20px;
+			font-weight: 500;
+			border: none;
+			cursor: pointer;
+			transition: .3s ease all;
+			border-radius: 7px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#comprobar span{
+			position: relative;
+			z-index: 2;
+			transition: .3s ease all;
+		}
+
+		#comprobar::after{
+			content: "";
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: calc(-100% - 80px);
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #286cff;
+			
+			transition: .4s ease-in-out all;
+		}
+
+		#comprobar:hover::after {
+			left: 0;
+		}
+
+
+		#pregunta {
+			cursor: pointer;
+		}
+
+		#pregunta:hover {
+			color: blue;
+			text-shadow: 1px;
+		}
+
+		b {
+			font-weight: normal;
+		}
+
+
+
+		#simonBolivar {
+			position: absolute;
+			margin-left: 500px;
+			margin-top: 200px;
+		}
+
+
+		#antonioNarino {
+			position: absolute;
+			margin-left: 450px;
+			margin-top: 250px;
+		}
+
+		#policarpaSalavarrieta {
+			position: absolute;
+			margin-left: 500px;
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div id="semiFondo"></div>
+	<div id="pregunta1">
+		<img id="elGaitan" src="img/gaitan.png" height="300px">
+		<div id="preguntas">
+			<p id="preguntasResponde">Responde la siguiente pregunta: </p>
+			<p>¿Quien soy yo?</p><br>
+			<b id="pregunta" onclick="erroreno()">a)  Michelsen</b><br><br>
+			<b id="pregunta" onclick="acertadoAzul()">b)  Gaitan</b><br><br>
+			<b id="pregunta" onclick="erroreno()">c)  Belisario</b><br><br>
+			<button name="comprobar" id="comprobar"><span>Comprobar</span></button>
+		</div>
+	</div> -->
+
+
+	<!-- <div id="semiFondo"></div>
+	<div id="pregunta1">
+		<img id="simonBolivar" src="img/caballo/SimonBolivar.png" height="300px">
+		<div id="preguntas">
+			<p id="preguntasResponde">Responde la siguiente pregunta: </p>
+			<p>¿Quien soy yo?</p><p>Logre la libertad de diferentes paises suramericanos</p><br>
+			<b id="pregunta" onclick="erroreno()">a)  Fernadez Rodrigo del Toro</b><br><br>
+			<b id="pregunta" onclick="erroreno()">b)  Manuel del Mato</b><br><br>
+			<b id="pregunta" onclick="acertadoVerde()">c)  Simon Bolivar</b><br><br>
+		</div>
+	</div> -->
+
+
+
+	<!-- <div id="semiFondo"></div>
+	<div id="pregunta1">
+		<img id="antonioNarino" src="img/caballo/AntonioNarino.png" height="250px">
+		<div id="preguntas">
+			<p id="preguntasResponde">Responde la siguiente pregunta: </p>
+			<p>¿Quien soy yo?</p><p>Peleé contra los Realistas en 1813, ahora mi apellido lo lleva la Residencia oficial del presidente<br>de Colombia</p><br>
+			<b id="pregunta" onclick="acertadoAmarillo()">a)  Antonio Nariño</b><br><br>
+			<b id="pregunta" onclick="erroreno()">b)  Simon Bolivar</b><br><br>
+			<b id="pregunta" onclick="erroreno()">c)  Cesar Carrión</b><br><br>
+		</div>
+	</div> -->
+
+
+
+
+	<div id="semiFondo"></div>
+	<div id="pregunta1">
+		<img id="policarpaSalavarrieta" src="img/caballo/PolicarpaSalavarrieta.png" height="400px">
+		<div id="preguntas">
+			<p id="preguntasResponde">Responde la siguiente pregunta: </p>
+			<p>¿Que papel desempeñe durante la independencia de Colombia?</p><p>Soy Policarpa Salavarrieta, conocida tambien como la Pola, fui<br>arrestada y fusilada en 1817 en la plaza Mayor de Bogotá</p><br>
+			<b id="pregunta" onclick="erroreno()">a)  Abogada</b><br><br>
+			<b id="pregunta" onclick="erroreno()">b)  Libertadora</b><br><br>
+			<b id="pregunta" onclick="acertadoRojo()">c)  Espía</b><br><br>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function comprueba(opc) {
+			ingreso = document.getElementById("ingresoPresi").value;
+			if (opc == 2) {
+				alert("wena");
+			} else{
+				alert("mala");
+			}
+		}
+
+		function acertadoAzul(){
+			alert("wena")
+		}
+
+		function acertadoVerde(){
+			alert("wena")
+		}
+
+		function acertadoAmarillo(){
+			alert("wena")
+		}
+
+		function acertadoRojo(){
+			alert("wena")
+		}
+
+
+		function erroreno(){
+			alert("mala");
+		}
+
+		comprobar = document.getElementById("comprobar");
+
+		comprobar.addEventListener("click", comprueba, false);
+	</script>
+
+</body>
+</html>

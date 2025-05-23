@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>ColHistory 2.0|nivel5</title>
+	<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+	<script type="text/javascript" src="javascript/sweetalert.js"></script>
+	<link rel="icon" href="img/logosimp.png">
+	<style type="text/css">
+
+		body{
+			background-image:url("img/fondo1.png"); 
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center center;
+			font-family: cursive;
+			padding: 5px;
+
+		}
+
+
+		#cab {
+			position: absolute;
+			width: 20px;
+			margin-left: 678.5px;
+			margin-top: -24.5px;
+			z-index: 21;
+		}
+
+
+		div#header {
+			text-indent: 16em;
+		}
+
+		.link{
+			text-decoration: none;
+		}
+		.boton{
+			background-color: white;
+			padding: 5px;
+			border-radius: 5px;
+			border: 2px black dashed;
+			text-decoration: none;
+			background-size: cover;
+			text-decoration: none;
+			color: rgb(0, 0, 0);
+			font-size: 20px;
+			transition: 0.5s;
+		}
+
+		.boton:hover {
+			/*color: white;*/
+			/*background-color: black;*/
+			/*border: 2px white dashed;*/
+			filter: invert(100%);
+		}
+
+		div#indicaciones {
+			background-color: rgba(250, 250, 250, 0.4);
+			position: sticky;
+			top: 0px;
+			width: 500px;
+			display: inline-block;
+			margin: auto;
+			padding: 25px;
+			border-radius: 50px;
+		}
+
+		h2 {
+			text-indent: 2em;
+		}
+
+		b {
+			font-weight: normal;
+		}
+
+
+
+
+		div#CentroControl{
+			position: absolute;
+			left: 42%;
+		}
+
+
+		#comprobar {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 235px;
+			height: 50px;
+			background: #141414;
+			color: #fff;
+			font-family: cursive;
+			font-size: 20px;
+			font-weight: 500;
+			border: none;
+			cursor: default;
+			transition: .3s ease all;
+			border-radius: 7px;
+			position: relative;
+			overflow: hidden;
+			opacity: 0;
+		}
+
+		#comprobar span{
+			position: relative;
+			z-index: 2;
+			transition: .3s ease all;
+		}
+
+		#comprobar::after{
+			content: "";
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: calc(-100% - 80px);
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #286cff;
+			
+			transition: .4s ease-in-out all;
+		}
+
+		#comprobar:hover::after {
+			left: 0;
+		}
+
+		#comprobar2 {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 235px;
+			height: 50px;
+			background: #141414;
+			color: #fff;
+			font-family: cursive;
+			font-size: 20px;
+			font-weight: 500;
+			border: none;
+			cursor: pointer;
+			transition: .3s ease all;
+			border-radius: 7px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#comprobar2 span{
+			position: relative;
+			z-index: 2;
+			transition: .3s ease all;
+		}
+
+		#comprobar2::after{
+			content: "";
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: calc(-100% - 80px);
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #286cff;
+			
+			transition: .4s ease-in-out all;
+		}
+
+		#comprobar2:hover::after {
+			left: 0;
+		}
+
+
+		._jeb {
+			transition: 1s;
+			animation-duration: 5s;
+			animation-name: _jeb;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes _jeb {
+			0% {
+				color: blue;
+			}
+
+			50% {
+				color: red;
+			}
+
+			100% {
+				color: blue;
+			}
+		}
+
+		#irMenu {
+			position: fixed;
+			right: -5px;
+		}
+
+		#irMenuText {
+			position: absolute;
+			z-index: 21;
+			margin-left: 50px;
+			margin-top: 35px;
+			color: white;
+			font-size: 50px;
+			font-weight: bold;
+			-webkit-text-stroke: 1px gray;
+		}
+
+		#banderaC {
+			transform: scaleX(-1);
+			z-index: 20;
+		}
+
+		#sig {
+			display: none;
+		}
+
+		#mapa {
+			/*margin-left: calc(50% - 230px);*/
+			margin-left: 430.5px;
+		}
+
+		#puerta {
+			position: absolute;
+			margin-left: -283.5px;
+			z-index: 1;
+		}
+
+
+/*
+		#semiFondo{
+			z-index: 40;
+			position: fixed;
+			width: 100%;
+			height: 657px;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(14, 14, 14, .3);
+		}
+*/
+
+		#pregunta1 {
+			z-index: 41;
+			position: fixed;
+			width: 800px;
+			height: 500px;
+			background-color: white;
+			border-radius: 30px;
+			left: calc(50% - 400px);
+			top: 78.55px;
+		}
+
+		#elGaitan {
+			z-index: 42;
+			position: fixed;
+			margin-left: 500px;
+			margin-top: 200px;
+		}
+
+
+		#simonBolivar {
+			position: absolute;
+			margin-left: 500px;
+			margin-top: 200px;
+		}
+
+
+		#antonioNarino {
+			position: absolute;
+			margin-left: 450px;
+			margin-top: 250px;
+		}
+
+		#policarpaSalavarrieta {
+			position: absolute;
+			margin-left: 500px;
+			margin-top: 100px;
+		}
+
+		#preguntas {
+			margin-left: 50px;
+			margin-top: 100px;
+		}
+
+		#preguntasResponde {
+			font-size: 20px;
+		}
+
+		#ingresoPresi {
+			border: none;
+			border-bottom: 3px solid blue;
+		}
+
+
+		#pregunta {
+			cursor: pointer;
+			margin-left: 10px;
+		}
+
+		#pregunta:hover {
+			color: blue;
+			text-shadow: 1px;
+		}
+
+		b {
+			font-weight: normal;
+		}
+
+		#Llavero {
+			position: fixed;
+			top: calc(50% - 115px);
+		}
+
+		#InventarioEspacio {
+			margin-top: -5px;
+			position: absolute;
+			background-color: rgba(10, 10, 10, .5);
+			width: 50px;
+			height: 235px;
+		}
+
+		#Inventario {
+			position: absolute;
+			margin-top: -7.5px;
+			margin-left: -5px;
+		}
+
+		#LLaveAzul, #LLaveVerde, #LLaveAmarillo, #LLaveRojo {
+			position: absolute;
+			width: 50px;
+			display: none;
+		}
+
+		#LLaveVerde{
+			margin-top: 60px;
+		}
+
+		#LLaveAmarillo{
+			margin-top: 120px;
+		}
+
+		#LLaveRojo{
+			margin-top: 180px;
+		}
+
+
+
+
+
+		#semiFondo{
+			z-index: 40;
+			position: fixed;
+			width: 100%;
+			/*height: 657px;*/
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(14, 14, 14, .3);
+		}
+
+
+
+		#pregunta1 {
+			z-index: 41;
+			position: fixed;
+			width: 800px;
+			height: 500px;
+			background-color: white;
+			border-radius: 30px;
+			left: calc(50% - 400px);
+			top: 78.55px;
+		}
+
+
+		div#duda {
+			position: fixed;
+			bottom: 5px;
+			left: 5px;
+		}
+
+		img#duda {
+			width: 40px;
+			filter: invert(100%);
+		}
+
+		div#noDuda {
+			position: absolute;
+			text-align: center;
+			width: 250px;
+			margin-left: 275px;
+			margin-top: 425px;
+		}
+
+		img#InfoPart1 {
+			position: absolute;
+			margin-top: 50px;
+			margin-left: 450px;
+			width: 300px;
+		}
+
+		img#InfoPart2 {
+			position: absolute;
+			margin-top: 120px;
+			margin-left: 25px;
+			width: 300px;
+		}
+
+		img#InfoPart3 {
+			position: absolute;
+			margin-top: 300px;
+			margin-left: 525px;
+			width: 250px;
+		}
+
+		/*div#InfoText {
+			position: absolute;
+			margin-top: 75px;
+			margin-left: 300px;
+		}*/
+
+
+		div#InfoText1 {
+			position: absolute;
+			margin-top: 75px;
+			margin-left: 25px;
+			width: 400px;
+			text-align: right;
+		}
+
+		div#InfoText2 {
+			position: absolute;
+			margin-top: 200px;
+			margin-left: 350px;
+			/*width: 550px;*/
+			/*text-align: left;*/
+		}
+
+		div#InfoText3 {
+			position: absolute;
+			margin-top: 360px;
+			margin-left: 100px;
+			width: 400px;
+			text-align: right;
+		}
+
+		div#PuenteBoyaca{
+			position: fixed;
+			bottom: -12px;
+			right: -20px;
+			z-index: -1;
+		}
+
+
+	</style>
+	</head>
+	<body>
+
+		<div id="espacioDuda"></div>
+
+		<div id="espacio"></div>
+		<div id="Llavero">
+			<div id="InventarioEspacio"></div>
+			<img id="Inventario" src="img/caballo/InventarioParaElLLavero.png" height="240px">
+			<img src="img/caballo/LLave Azul.png" id="LLaveAzul">
+			<img src="img/caballo/LLave Verde.png" id="LLaveVerde">
+			<img src="img/caballo/LLave Amarilla.png" id="LLaveAmarillo">
+			<img src="img/caballo/LLave Roja.png" id="LLaveRojo">
+		</div>
+		<a id="irMenu" href="menu.html"><div id="irMenuText">menu</div><img src="Bandera de Colombia animada simple.gif" alt="Bandera Colombiana" id="banderaC"></a>
+		<div id="header">
+			<h1 class="_jeb">NIVEL 5</h1>
+			<h3 class="_jeb">LLEGA A LA SALIDA</h3>
+		</div>
+
+		<img src="img/caballo/Laberinto5.png" width="500px" id="mapa">
+		<img src="img/caballo/puerta.png" width="17px" id="puerta">
+		
+		<div id="Cab">
+			<img src="img/caballo/cabD.png" id="cab" width="10px">
+		</div>
+
+		<div id="duda" onclick="duda()">
+			<img src="img/Iconos/IconPregNegro.png" id="duda">
+		</div>
+
+		<div id="PuenteBoyaca">
+			<img width="350px" src="img/PuenteGuerra1000dias.png">
+		</div>
+
+		<div id="CentroControl">
+			<button name="comprobar" id="comprobar"><span>Comprobar</span></button>
+			<br><br>
+			<a class="boton" id="ant" href="nivel4.html"><< anterior</a>
+			<a class="boton" id="sig" href="nivel6.html">siguiente >></a>
+		</div>
+
+		<div id="sonidos">
+			<!-- <audio id="correcto" src="audio/correcto.mp3" autoplay></audio> -->
+		</div>
+		<div id="musicaDeFondo"></div>
+
+		<br><br><br><br><br><br>
+		<script type="text/javascript">
+
+			let comprobar = document.getElementById("comprobar");
+			let sig = document.getElementById("sig");
+
+			var LLaveAzul = document.getElementById("LLaveAzul");
+			var LLaveVerde = document.getElementById("LLaveVerde");
+			var LLaveAmarillo = document.getElementById("LLaveAmarillo");
+			var LLaveRojo = document.getElementById("LLaveRojo");
+			
+
+			cab = document.getElementById("cab");
+			Cab = document.getElementById("Cab");
+			posX = 678.5;
+			posY = -24.5;
+
+			llaveAzul = false;
+			llaveVerde = false;
+			llaveAmarilla = false;
+			llaveRoja = false;
+
+			musicaCon = true;
+
+
+
+			
+			function PosicionesXyYSoloParaTenerOrganizadoLasPosiciones(){
+				// Para Las X
+
+				// 1 X
+				if (posY < -56 && posY > -58 && posX > 560 && posX < 848);
+
+
+				// 2 X
+				if (posY < -106 && posY > -110 && posX > 844 && posX < 880);
+
+
+				// 3 X
+				if (posY < -256 && posY > -260 && posX > 827 && posX < 880);
+
+
+				// 4 X
+				if (posY < -288 && posY > -294 && posX > 794 && posX < 880);
+
+
+				// 5 X
+				if (posY < -406 && posY > -410 && posX > 705 && posX < 880);
+
+
+				// 6 X
+				if (posY < -438 && posY > -446 && posX > 558 && posX < 730);
+
+
+				// 7 X
+				if (posY < -472 && posY > -480 && posX > 642 && posX < 815);
+
+
+				// 8 X
+				if (posY < -138 && posY > -144 && posX > 810 && posX < 848);
+
+
+				// 9 X
+				if (posY < -220 && posY > -228 && posX > 810 && posX < 848);
+
+
+				// 10 X
+				if (posY < -170 && posY > -178 && posX > 790 && posX < 816);
+
+
+				// 11 X
+				if (posY < -88 && posY > -94 && posX > 658 && posX < 782);
+
+
+				// 12 X
+				if (posY < -170 && posY > -178 && posX > 674 && posX < 698);
+
+
+				// 13 X
+				if (posY < -120 && posY > -128 && posX > 694 && posX < 782);
+
+
+				// 14 X
+				if (posY < -138 && posY > -144 && posX > 624 && posX < 667);
+
+
+				// 15 X
+				if (posY < -170 && posY > -178 && posX > 590 && posX < 650);
+
+
+				// 16 X
+				if (posY < -220 && posY > -228 && posX > 490 && posX < 598);
+
+
+				// 17 X
+				if (posY < -138 && posY > -144 && posX > 524 && posX < 566);
+
+
+				// 18 X
+				if (posY < -86 && posY > -96 && posX > 456 && posX < 532);
+
+
+				// 19 X
+				if (posY < -54 && posY > -62 && posX > 456 && posX < 532);
+
+
+				// 20 X
+				if (posY < -254 && posY > -262 && posX > 456 && posX < 532);
+
+
+				// 21 X
+				if (posY < -304 && posY > -312 && posX > 456 && posX < 566);
+
+
+				// 22 X
+				if (posY < -270 && posY > -278 && posX > 556 && posX < 598);
+
+
+				// 23 X
+				if (posY < -254 && posY > -262 && posX > 590 && posX < 632);
+
+
+				// 24 X
+				if (posY < -338 && posY > -346 && posX > 456 && posX < 516);
+
+
+				// 25 X
+				if (posY < -304 && posY > -312 && posX > 624 && posX < 650);
+
+
+				// 26 X
+				if (posY < -204 && posY > -212 && posX > 624 && posX < 716);
+
+
+				// 27 X
+				if (posY < -204 && posY > -212 && posX > 740 && posX < 782);
+
+
+				// 28 X
+				if (posY < -254 && posY > -262 && posX > 656 && posX < 800);
+
+
+				// 29 X
+				if (posY < -286 && posY > -296 && posX > 656 && posX < 766);
+
+
+				// 30 X
+				if (posY < -336 && posY > -346 && posX > 540 && posX < 616);
+
+
+				// 31 X
+				if (posY < -404 && posY > -412 && posX > 556 && posX < 616);
+
+
+				// 32 X
+				if (posY < -320 && posY > -330 && posX > 674 && posX < 880);
+
+
+				// 33 X
+				if (posY < -404 && posY > -412 && posX > 640 && posX < 682);
+
+
+				// 34 X
+				if (posY < -370 && posY > -380 && posX > 674 && posX < 750);
+
+
+				// 35 X
+				if (posY < -354 && posY > -362 && posX > 740 && posX < 782);
+
+
+				// 36 X
+				if (posY < -370 && posY > -380 && posX > 774 && posX < 816);
+
+
+				// 37 X
+				if (posY < -370 && posY > -380 && posX > 840 && posX < 882);
+
+
+				// 38 X
+				if (posY < -438 && posY > -446 && posX > 758 && posX < 816);
+
+
+				// 39 X
+				if (posY < -438 && posY > -446 && posX > 840 && posX < 882);
+
+
+				// 40 X
+				if (posY < -472 && posY > -480 && posX > 456 && posX < 616);
+
+
+				// 41 X
+				if (posY < -404 && posY > -412 && posX > 490 && posX < 532);
+
+
+				// 42 X
+				if (posY < -370 && posY > -380 && posX > 456 && posX < 582);
+
+
+
+
+				if (posY < -472 && posY > -480 && posX > 456 && posX < 616 || posY < -404 && posY > -412 && posX > 490 && posX < 532 || posY < -370 && posY > -380 && posX > 456 && posX < 582) {}
+
+
+				if (posY < -138 && posY > -144 && posX > 524 && posX < 566 || posY < -86 && posY > -96 && posX > 456 && posX < 532 || posY < -54 && posY > -62 && posX > 456 && posX < 532 || posY < -254 && posY > -262 && posX > 456 && posX < 532 || posY < -304 && posY > -312 && posX > 456 && posX < 566 || posY < -270 && posY > -278 && posX > 556 && posX < 598 || posY < -254 && posY > -262 && posX > 590 && posX < 632 || posY < -338 && posY > -346 && posX > 456 && posX < 516 || posY < -304 && posY > -312 && posX > 624 && posX < 650 || posY < -204 && posY > -212 && posX > 624 && posX < 716 || posY < -204 && posY > -212 && posX > 740 && posX < 782 || posY < -254 && posY > -262 && posX > 656 && posX < 800 || posY < -286 && posY > -296 && posX > 656 && posX < 766 || posY < -336 && posY > -346 && posX > 540 && posX < 616 || posY < -404 && posY > -412 && posX > 556 && posX < 616 || posY < -320 && posY > -330 && posX > 674 && posX < 880 || posY < -438 && posY > -446 && posX > 758 && posX < 816 || posY < -438 && posY > -446 && posX > 840 && posX < 882 || posY < -472 && posY > -480 && posX > 456 && posX < 616 || posY < -404 && posY > -412 && posX > 490 && posX < 532 || posY < -370 && posY > -380 && posX > 456 && posX < 582) {}
+
+
+				// de la 1 - 42 X
+				// if (posY < -56 && posY > -58 && posX > 560 && posX < 846 || posY < -106 && posY > -110 && posX > 844 && posX < 880 || posY < -256 && posY > -260 && posX > 827 && posX < 880 || posY < -288 && posY > -294 && posX > 794 && posX < 880 || posY < -406 && posY > -410 && posX > 705 && posX < 880 || posY < -438 && posY > -446 && posX > 558 && posX < 730 || posY < -472 && posY > -480 && posX > 642 && posX < 815 || posY < -138 && posY > -144 && posX > 810 && posX < 848 || posY < -220 && posY > -228 && posX > 810 && posX < 848 || posY < -170 && posY > -178 && posX > 790 && posX < 816 || posY < -88 && posY > -94 && posX > 658 && posX < 782 || posY < -170 && posY > -178 && posX > 674 && posX < 698 || posY < -120 && posY > -128 && posX > 694 && posX < 782 || posY < -138 && posY > -144 && posX > 624 && posX < 667 || posY < -170 && posY > -178 && posX > 590 && posX < 650 || posY < -220 && posY > -228 && posX > 490 && posX < 598 || posY < -138 && posY > -144 && posX > 524 && posX < 566 || posY < -86 && posY > -96 && posX > 456 && posX < 532 || posY < -54 && posY > -62 && posX > 456 && posX < 532 || posY < -254 && posY > -262 && posX > 456 && posX < 532 || posY < -304 && posY > -312 && posX > 456 && posX < 566 || posY < -270 && posY > -278 && posX > 556 && posX < 598 || posY < -254 && posY > -262 && posX > 590 && posX < 632 || posY < -338 && posY > -346 && posX > 456 && posX < 516 || posY < -304 && posY > -312 && posX > 624 && posX < 650 || posY < -204 && posY > -212 && posX > 624 && posX < 716 || posY < -204 && posY > -212 && posX > 740 && posX < 782 || posY < -254 && posY > -262 && posX > 656 && posX < 800 || posY < -286 && posY > -296 && posX > 656 && posX < 766 || posY < -336 && posY > -346 && posX > 540 && posX < 616 || posY < -404 && posY > -412 && posX > 556 && posX < 616 || posY < -320 && posY > -330 && posX > 674 && posX < 880 || posY < -438 && posY > -446 && posX > 758 && posX < 816 || posY < -438 && posY > -446 && posX > 840 && posX < 882 || posY < -472 && posY > -480 && posX > 456 && posX < 616 || posY < -404 && posY > -412 && posX > 490 && posX < 532 || posY < -370 && posY > -380 && posX > 456 && posX < 582) {}
+
+
+
+				// Para Las Y
+
+				// 1 Y
+				if (posX > 677 && posX < 680 && posY < -7.9 && posY > -74.6);
+
+
+				// 2 Y
+				if (posX > 844 && posX < 850 && posY < -56 && posY > -109);
+
+
+				// 3 Y
+				if (posX > 874 && posX < 880 && posY < -56 && posY > -259);
+
+
+				// 4 Y
+				if (posX > 826 && posX < 830 && posY < -257 && posY > -293);
+
+
+				// 5 Y
+				if (posX > 874 && posX < 880 && posY < -288 && posY > -478);
+
+
+				// 6 Y
+				if (posX > 708 && posX < 714 && posY < -406 && posY > -445);
+
+
+				// 7 Y
+				if (posX > 724 && posX < 730 && posY < -438 && posY > -478);
+
+
+				// 8 Y
+				if (posX > 640 && posX < 650 && posY < -470 && posY > -512);
+
+
+				// 9 Y
+				if (posX > 810 && posX < 816 && posY < -56 && posY > -144);
+
+
+				// 10 Y
+				if (posX > 842 && posX < 848 && posY < -138 && posY > -228);
+
+
+				// 11 Y
+				if (posX > 808 && posX < 816 && posY < -170 && posY > -228);
+
+
+				// 12 Y
+				if (posX > 774 && posX < 784 && posY < -56 && posY > -94);
+
+
+				// 13 Y
+				if (posX > 692 && posX < 698 && posY < -90 && posY > -178);
+
+
+				// 14 Y
+				if (posX > 724 && posX < 730 && posY < -120 && posY > -178);
+
+
+				// 15 Y
+				if (posX > 774 && posX < 782 && posY < -120 && posY > -162);
+
+
+				// 16 Y
+				if (posX > 658 && posX < 664 && posY < -88 && posY > -144);
+
+
+				// 17 Y
+				if (posX > 624 && posX < 632 && posY < -88 && posY > -144);
+
+
+				// 18 Y
+				if (posX > 642 && posX < 648 && posY < -138 && posY > -178);
+
+
+				// 19 Y
+				if (posX > 590 && posX < 598 && posY < -170 && posY > -228);
+
+
+				// 20 Y
+				if (posX > 556 && posX < 566 && posY < -170 && posY > -228);
+
+
+				// 21 Y
+				if (posX > 524 && posX < 532 && posY < -170 && posY > -228);
+
+
+				// 22 Y
+				if (posX > 490 && posX < 498 && posY < -120 && posY > -228);
+
+
+				// 23 Y
+				if (posX > 590 && posX < 598 && posY < -52 && posY > -146);
+
+
+				// 24 Y
+				if (posX > 556 && posX < 566 && posY < -52 && posY > -146);
+
+
+				// 25 Y
+				if (posX > 524 && posX < 532 && posY < -88 && posY > -144);
+
+
+				// 26 Y
+				if (posX > 456 && posX < 466 && posY < -56 && posY > -259);
+
+
+				// 27 Y
+				if (posX > 524 && posX < 532 && posY < -254 && posY > -312);
+
+
+				// 28 Y
+				if (posX > 556 && posX < 566 && posY < -254 && posY > -312);
+
+
+				// 29 Y
+				if (posX > 590 && posX < 598 && posY < -254 && posY > -312);
+
+
+				// 30 Y
+				if (posX > 456 && posX < 466 && posY < -304 && posY > -346);
+
+
+				// 31 Y
+				if (posX > 540 && posX < 548 && posY < -304 && posY > -346);
+
+
+				// 32 Y
+				if (posX > 624 && posX < 632 && posY < -204 && posY > -312);
+
+
+				// 33 Y
+				if (posX > 640 && posX < 650 && posY < -304 && posY > -380);
+
+
+				// 34 Y
+				if (posX > 656 && posX < 667 && posY < -204 && posY > -296);
+
+
+				// 35 Y
+				if (posX > 706 && posX < 716 && posY < -204 && posY > -262);
+
+
+				// 36 Y
+				if (posX > 758 && posX < 766 && posY < -170 && posY > -212);
+
+
+				// 37 Y
+				if (posX > 740 && posX < 750 && posY < -204 && posY > -228);
+
+
+				// 38 Y
+				if (posX > 774 && posX < 782 && posY < -204 && posY > -262);
+
+
+				// 39 Y
+				if (posX > 606 && posX < 616 && posY < -336 && posY > -412);
+
+
+				// 40 Y
+				if (posX > 556 && posX < 566 && posY < -404 && posY > -446);
+
+
+				// 41 Y
+				if (posX > 677 && posX < 680 && posY < -286 && posY > -330);
+
+
+				// 42 Y
+				if (posX > 790 && posX < 800 && posY < -286 && posY > -330);
+
+
+				// 43 Y
+				if (posX > 677 && posX < 680 && posY < -354 && posY > -412);
+
+
+				// 44 Y
+				if (posX > 740 && posX < 750 && posY < -320 && posY > -380);
+
+
+				// 45 Y
+				if (posX > 774 && posX < 782 && posY < -354 && posY > -380);
+
+
+				// 46 Y
+				if (posX > 808 && posX < 816 && posY < -354 && posY > -380);
+
+
+				// 47 Y
+				if (posX > 840 && posX < 850 && posY < -354 && posY > -380);
+
+
+				// 48 Y
+				if (posX > 808 && posX < 816 && posY < -436 && posY > -480);
+
+
+				// 49 Y
+				if (posX > 840 && posX < 850 && posY < -436 && posY > -480);
+
+
+				// 50 Y
+				if (posX > 606 && posX < 616 && posY < -436 && posY > -480);
+
+
+				// 51 Y
+				if (posX > 524 && posX < 532 && posY < -406 && posY > -445);
+
+
+				// 52 Y
+				if (posX > 490 && posX < 498 && posY < -404 && posY > -480);
+
+
+				// 53 Y
+				if (posX > 456 && posX < 466 && posY < -370 && posY > -480);
+
+
+
+				// De la 1 - 53 Y
+
+				// if (posX > 677 && posX < 680 && posY < -7.9 && posY > -74.6 || posX > 844 && posX < 850 && posY < -56 && posY > -109 || posX > 874 && posX < 880 && posY < -56 && posY > -259 || posX > 826 && posX < 830 && posY < -257 && posY > -293 || posX > 874 && posX < 880 && posY < -288 && posY > -478 || posX > 708 && posX < 714 && posY < -406 && posY > -445 || posX > 724 && posX < 730 && posY < -438 && posY > -478 || posX > 640 && posX < 650 && posY < -470 && posY > -512 || posX > 810 && posX < 816 && posY < -56 && posY > -144 || posX > 842 && posX < 848 && posY < -138 && posY > -228 || posX > 808 && posX < 816 && posY < -170 && posY > -228 || posX > 774 && posX < 784 && posY < -56 && posY > -94 || posX > 692 && posX < 698 && posY < -90 && posY > -178 || posX > 724 && posX < 730 && posY < -120 && posY > -178 || posX > 774 && posX < 782 && posY < -120 && posY > -162 || posX > 658 && posX < 664 && posY < -88 && posY > -144 || posX > 624 && posX < 632 && posY < -88 && posY > -144 || posX > 642 && posX < 648 && posY < -138 && posY > -178 || posX > 590 && posX < 598 && posY < -170 && posY > -228 || posX > 556 && posX < 566 && posY < -170 && posY > -228 || posX > 524 && posX < 532 && posY < -170 && posY > -228 || posX > 490 && posX < 498 && posY < -120 && posY > -228 || posX > 590 && posX < 598 && posY < -52 && posY > -146 || posX > 556 && posX < 566 && posY < -52 && posY > -146 || posX > 524 && posX < 532 && posY < -88 && posY > -144 || posX > 456 && posX < 466 && posY < -56 && posY > -259 || posX > 524 && posX < 532 && posY < -254 && posY > -312 || posX > 556 && posX < 566 && posY < -254 && posY > -312 || posX > 590 && posX < 598 && posY < -254 && posY > -312 || posX > 456 && posX < 466 && posY < -304 && posY > -346 || posX > 540 && posX < 548 && posY < -304 && posY > -346 || posX > 624 && posX < 632 && posY < -204 && posY > -312 || posX > 640 && posX < 650 && posY < -304 && posY > -380 || posX > 656 && posX < 667 && posY < -204 && posY > -296 || posX > 706 && posX < 716 && posY < -204 && posY > -262 || posX > 758 && posX < 766 && posY < -170 && posY > -178 || posX > 774 && posX < 782 && posY < -204 && posY > -262 || posX > 758 && posX < 766 && posY < -170 && posY > -212 || posX > 740 && posX < 750 && posY < -204 && posY > -228 || posX > 774 && posX < 782 && posY < -204 && posY > -262 || posX > 606 && posX < 616 && posY < -336 && posY > -412 || posX > 556 && posX < 566 && posY < -404 && posY > -446 || posX > 677 && posX < 680 && posY < -286 && posY > -330 || posX > 790 && posX < 800 && posY < -286 && posY > -330 || posX > 677 && posX < 680 && posY < -354 && posY > -412 || posX > 740 && posX < 750 && posY < -320 && posY > -380 || posX > 774 && posX < 782 && posY < -354 && posY > -380 || posX > 808 && posX < 816 && posY < -354 && posY > -380 || posX > 840 && posX < 850 && posY < -354 && posY > -380 || posX > 808 && posX < 816 && posY < -436 && posY > -480 || posX > 840 && posX < 850 && posY < -436 && posY > -480 || posX > 606 && posX < 616 && posY < -436 && posY > -480 || posX > 524 && posX < 532 && posY < -406 && posY > -445 || posX > 490 && posX < 498 && posY < -404 && posY > -480 || posX > 456 && posX < 466 && posY < -370 && posY > -480) {}
+
+
+			}
+
+
+
+
+
+
+
+
+
+			function prTecla(event) {
+				if(mover){
+					tecla = event.key;
+					// console.log(tecla)
+					if (tecla == 'd' || tecla == 'D' || tecla == 'ArrowRight'){
+						// Cab.innerHTML = `<img src="cabA.png" id="cab">`;
+						posX += 16.7;
+						if (posY < -56 && posY > -58 && posX > 560 && posX < 846 || posY < -106 && posY > -110 && posX > 844 && posX < 880 || posY < -256 && posY > -260 && posX > 827 && posX < 880 || posY < -288 && posY > -294 && posX > 794 && posX < 880 || posY < -406 && posY > -410 && posX > 705 && posX < 880 || posY < -438 && posY > -446 && posX > 558 && posX < 730 || posY < -472 && posY > -480 && posX > 642 && posX < 815 || posY < -138 && posY > -144 && posX > 810 && posX < 848 || posY < -220 && posY > -228 && posX > 810 && posX < 848 || posY < -170 && posY > -178 && posX > 790 && posX < 816 || posY < -88 && posY > -94 && posX > 658 && posX < 782 || posY < -170 && posY > -178 && posX > 674 && posX < 698 || posY < -120 && posY > -128 && posX > 694 && posX < 782 || posY < -138 && posY > -144 && posX > 624 && posX < 667 || posY < -170 && posY > -178 && posX > 590 && posX < 650 || posY < -220 && posY > -228 && posX > 490 && posX < 598 || posY < -138 && posY > -144 && posX > 524 && posX < 566 || posY < -86 && posY > -96 && posX > 456 && posX < 532 || posY < -54 && posY > -62 && posX > 456 && posX < 532 || posY < -254 && posY > -262 && posX > 456 && posX < 532 || posY < -304 && posY > -312 && posX > 456 && posX < 566 || posY < -270 && posY > -278 && posX > 556 && posX < 598 || posY < -254 && posY > -262 && posX > 590 && posX < 632 || posY < -338 && posY > -346 && posX > 456 && posX < 516 || posY < -304 && posY > -312 && posX > 624 && posX < 650 || posY < -204 && posY > -212 && posX > 624 && posX < 716 || posY < -204 && posY > -212 && posX > 740 && posX < 782 || posY < -254 && posY > -262 && posX > 656 && posX < 800 || posY < -286 && posY > -296 && posX > 656 && posX < 766 || posY < -336 && posY > -346 && posX > 540 && posX < 616 || posY < -404 && posY > -412 && posX > 556 && posX < 616 || posY < -320 && posY > -330 && posX > 674 && posX < 880 || posY < -404 && posY > -412 && posX > 640 && posX < 682 || posY < -370 && posY > -380 && posX > 674 && posX < 750 || posY < -354 && posY > -362 && posX > 740 && posX < 782 || posY < -370 && posY > -380 && posX > 774 && posX < 816 || posY < -370 && posY > -380 && posX > 840 && posX < 882 || posY < -438 && posY > -446 && posX > 758 && posX < 816 || posY < -438 && posY > -446 && posX > 840 && posX < 882 || posY < -472 && posY > -480 && posX > 456 && posX < 616 || posY < -404 && posY > -412 && posX > 490 && posX < 532 || posY < -370 && posY > -380 && posX > 456 && posX < 582) cab.style.marginLeft = `${posX}px`;
+						else posX -= 16.7;
+						meta();
+						pregAzul();
+						pregVerde();
+						pregAmarilla();
+						pregRoja();
+					}
+					if (tecla == 'a' || tecla == 'A' || tecla == 'ArrowLeft'){
+						posX -= 16.7;
+						if (posY < -56 && posY > -58 && posX > 560 && posX < 846 || posY < -106 && posY > -110 && posX > 844 && posX < 880 || posY < -256 && posY > -260 && posX > 827 && posX < 880 || posY < -288 && posY > -294 && posX > 794 && posX < 880 || posY < -406 && posY > -410 && posX > 705 && posX < 880 || posY < -438 && posY > -446 && posX > 558 && posX < 730 || posY < -472 && posY > -480 && posX > 642 && posX < 815 || posY < -138 && posY > -144 && posX > 810 && posX < 848 || posY < -220 && posY > -228 && posX > 810 && posX < 848 || posY < -170 && posY > -178 && posX > 790 && posX < 816 || posY < -88 && posY > -94 && posX > 658 && posX < 782 || posY < -170 && posY > -178 && posX > 674 && posX < 698 || posY < -120 && posY > -128 && posX > 694 && posX < 782 || posY < -138 && posY > -144 && posX > 624 && posX < 667 || posY < -170 && posY > -178 && posX > 590 && posX < 650 || posY < -220 && posY > -228 && posX > 490 && posX < 598 || posY < -138 && posY > -144 && posX > 524 && posX < 566 || posY < -86 && posY > -96 && posX > 456 && posX < 532 || posY < -54 && posY > -62 && posX > 456 && posX < 532 || posY < -254 && posY > -262 && posX > 456 && posX < 532 || posY < -304 && posY > -312 && posX > 456 && posX < 566 || posY < -270 && posY > -278 && posX > 556 && posX < 598 || posY < -254 && posY > -262 && posX > 590 && posX < 632 || posY < -338 && posY > -346 && posX > 456 && posX < 516 || posY < -304 && posY > -312 && posX > 624 && posX < 650 || posY < -204 && posY > -212 && posX > 624 && posX < 716 || posY < -204 && posY > -212 && posX > 740 && posX < 782 || posY < -254 && posY > -262 && posX > 656 && posX < 800 || posY < -286 && posY > -296 && posX > 656 && posX < 766 || posY < -336 && posY > -346 && posX > 540 && posX < 616 || posY < -404 && posY > -412 && posX > 556 && posX < 616 || posY < -320 && posY > -330 && posX > 674 && posX < 880 || posY < -404 && posY > -412 && posX > 640 && posX < 682 || posY < -370 && posY > -380 && posX > 674 && posX < 750 || posY < -354 && posY > -362 && posX > 740 && posX < 782 || posY < -370 && posY > -380 && posX > 774 && posX < 816 || posY < -370 && posY > -380 && posX > 840 && posX < 882 || posY < -438 && posY > -446 && posX > 758 && posX < 816 || posY < -438 && posY > -446 && posX > 840 && posX < 882 || posY < -472 && posY > -480 && posX > 456 && posX < 616 || posY < -404 && posY > -412 && posX > 490 && posX < 532 || posY < -370 && posY > -380 && posX > 456 && posX < 582) cab.style.marginLeft = `${posX}px`;
+						else posX += 16.7;
+						meta();
+						pregAzul();
+						pregVerde();
+						pregAmarilla();
+						pregRoja();
+					}
+					if (tecla == 's' || tecla == 'S' || tecla == 'ArrowDown'){
+						posY += 16.7;
+						if (posX > 677 && posX < 680 && posY < -7.9 && posY > -74.6 || posX > 844 && posX < 850 && posY < -56 && posY > -109 || posX > 874 && posX < 880 && posY < -56 && posY > -259 || posX > 826 && posX < 830 && posY < -257 && posY > -293 || posX > 874 && posX < 880 && posY < -288 && posY > -478 || posX > 708 && posX < 714 && posY < -406 && posY > -445 || posX > 724 && posX < 730 && posY < -438 && posY > -478 || posX > 640 && posX < 650 && posY < -470 && posY > -512 || posX > 810 && posX < 816 && posY < -56 && posY > -144 || posX > 842 && posX < 848 && posY < -138 && posY > -228 || posX > 808 && posX < 816 && posY < -170 && posY > -228 || posX > 774 && posX < 784 && posY < -56 && posY > -94 || posX > 692 && posX < 698 && posY < -90 && posY > -178 || posX > 724 && posX < 730 && posY < -120 && posY > -178 || posX > 774 && posX < 782 && posY < -120 && posY > -162 || posX > 658 && posX < 664 && posY < -88 && posY > -144 || posX > 624 && posX < 632 && posY < -88 && posY > -144 || posX > 642 && posX < 648 && posY < -138 && posY > -178 || posX > 590 && posX < 598 && posY < -170 && posY > -228 || posX > 556 && posX < 566 && posY < -170 && posY > -228 || posX > 524 && posX < 532 && posY < -170 && posY > -228 || posX > 490 && posX < 498 && posY < -120 && posY > -228 || posX > 590 && posX < 598 && posY < -52 && posY > -146 || posX > 556 && posX < 566 && posY < -52 && posY > -146 || posX > 524 && posX < 532 && posY < -88 && posY > -144 || posX > 456 && posX < 466 && posY < -56 && posY > -259 || posX > 524 && posX < 532 && posY < -254 && posY > -312 || posX > 556 && posX < 566 && posY < -254 && posY > -312 || posX > 590 && posX < 598 && posY < -254 && posY > -312 || posX > 456 && posX < 466 && posY < -304 && posY > -346 || posX > 540 && posX < 548 && posY < -304 && posY > -346 || posX > 624 && posX < 632 && posY < -204 && posY > -312 || posX > 640 && posX < 650 && posY < -304 && posY > -380 || posX > 656 && posX < 667 && posY < -204 && posY > -296 || posX > 706 && posX < 716 && posY < -204 && posY > -262 || posX > 758 && posX < 766 && posY < -170 && posY > -178 || posX > 774 && posX < 782 && posY < -204 && posY > -262 || posX > 758 && posX < 766 && posY < -170 && posY > -212 || posX > 740 && posX < 750 && posY < -204 && posY > -228 || posX > 774 && posX < 782 && posY < -204 && posY > -262 || posX > 606 && posX < 616 && posY < -336 && posY > -412 || posX > 556 && posX < 566 && posY < -404 && posY > -446 || posX > 677 && posX < 680 && posY < -286 && posY > -330 || posX > 790 && posX < 800 && posY < -286 && posY > -330 || posX > 677 && posX < 680 && posY < -354 && posY > -412 || posX > 740 && posX < 750 && posY < -320 && posY > -380 || posX > 774 && posX < 782 && posY < -354 && posY > -380 || posX > 808 && posX < 816 && posY < -354 && posY > -380 || posX > 840 && posX < 850 && posY < -354 && posY > -380 || posX > 808 && posX < 816 && posY < -436 && posY > -480 || posX > 840 && posX < 850 && posY < -436 && posY > -480 || posX > 606 && posX < 616 && posY < -436 && posY > -480 || posX > 524 && posX < 532 && posY < -406 && posY > -445 || posX > 490 && posX < 498 && posY < -404 && posY > -480 || posX > 456 && posX < 466 && posY < -370 && posY > -480) cab.style.marginTop = `${posY}px`;
+						else posY -= 16.7;
+						meta();
+						pregAzul();
+						pregVerde();
+						pregAmarilla();
+						pregRoja();
+					}
+					if (tecla == 'w' || tecla == 'W' || tecla == 'ArrowUp'){
+						posY -= 16.7;
+						if (posX > 677 && posX < 680 && posY < -7.9 && posY > -74.6 || posX > 844 && posX < 850 && posY < -56 && posY > -109 || posX > 874 && posX < 880 && posY < -56 && posY > -259 || posX > 826 && posX < 830 && posY < -257 && posY > -293 || posX > 874 && posX < 880 && posY < -288 && posY > -478 || posX > 708 && posX < 714 && posY < -406 && posY > -445 || posX > 724 && posX < 730 && posY < -438 && posY > -478 || posX > 640 && posX < 650 && posY < -470 && posY > -512 || posX > 810 && posX < 816 && posY < -56 && posY > -144 || posX > 842 && posX < 848 && posY < -138 && posY > -228 || posX > 808 && posX < 816 && posY < -170 && posY > -228 || posX > 774 && posX < 784 && posY < -56 && posY > -94 || posX > 692 && posX < 698 && posY < -90 && posY > -178 || posX > 724 && posX < 730 && posY < -120 && posY > -178 || posX > 774 && posX < 782 && posY < -120 && posY > -162 || posX > 658 && posX < 664 && posY < -88 && posY > -144 || posX > 624 && posX < 632 && posY < -88 && posY > -144 || posX > 642 && posX < 648 && posY < -138 && posY > -178 || posX > 590 && posX < 598 && posY < -170 && posY > -228 || posX > 556 && posX < 566 && posY < -170 && posY > -228 || posX > 524 && posX < 532 && posY < -170 && posY > -228 || posX > 490 && posX < 498 && posY < -120 && posY > -228 || posX > 590 && posX < 598 && posY < -52 && posY > -146 || posX > 556 && posX < 566 && posY < -52 && posY > -146 || posX > 524 && posX < 532 && posY < -88 && posY > -144 || posX > 456 && posX < 466 && posY < -56 && posY > -259 || posX > 524 && posX < 532 && posY < -254 && posY > -312 || posX > 556 && posX < 566 && posY < -254 && posY > -312 || posX > 590 && posX < 598 && posY < -254 && posY > -312 || posX > 456 && posX < 466 && posY < -304 && posY > -346 || posX > 540 && posX < 548 && posY < -304 && posY > -346 || posX > 624 && posX < 632 && posY < -204 && posY > -312 || posX > 640 && posX < 650 && posY < -304 && posY > -380 || posX > 656 && posX < 667 && posY < -204 && posY > -296 || posX > 706 && posX < 716 && posY < -204 && posY > -262 || posX > 758 && posX < 766 && posY < -170 && posY > -178 || posX > 774 && posX < 782 && posY < -204 && posY > -262 || posX > 758 && posX < 766 && posY < -170 && posY > -212 || posX > 740 && posX < 750 && posY < -204 && posY > -228 || posX > 774 && posX < 782 && posY < -204 && posY > -262 || posX > 606 && posX < 616 && posY < -336 && posY > -412 || posX > 556 && posX < 566 && posY < -404 && posY > -446 || posX > 677 && posX < 680 && posY < -286 && posY > -330 || posX > 790 && posX < 800 && posY < -286 && posY > -330 || posX > 677 && posX < 680 && posY < -354 && posY > -412 || posX > 740 && posX < 750 && posY < -320 && posY > -380 || posX > 774 && posX < 782 && posY < -354 && posY > -380 || posX > 808 && posX < 816 && posY < -354 && posY > -380 || posX > 840 && posX < 850 && posY < -354 && posY > -380 || posX > 808 && posX < 816 && posY < -436 && posY > -480 || posX > 840 && posX < 850 && posY < -436 && posY > -480 || posX > 606 && posX < 616 && posY < -436 && posY > -480 || posX > 524 && posX < 532 && posY < -406 && posY > -445 || posX > 490 && posX < 498 && posY < -404 && posY > -480 || posX > 456 && posX < 466 && posY < -370 && posY > -480) cab.style.marginTop = `${posY}px`;
+						else posY += 16.7;
+						meta();
+						pregAzul();
+						pregVerde();
+						pregAmarilla();
+						pregRoja();
+					}
+
+					console.log(` || posX == ${posX} && posY == ${posY}`);
+					musicaFondo();
+				}
+			}
+
+			function musicaFondo(){
+				/* if (musicaCon) {
+					musicaDeFondo.innerHTML = `<audio id="correcto" src="audio/Mountian King ColHistory.mp3" autoplay loop></audio>`;
+				}
+				musicaCon = false; */
+			}
+
+
+			function pregAzul() {
+				if(posX > 826 && posX < 830 && posY < -272 && posY > -278 && !llaveAzul)aparecerPregAzul();
+			}
+
+			function aparecerPregAzul(){
+				espacio.innerHTML = `	
+					<div id="semiFondo"></div>
+					<div id="pregunta1">
+						<img id="elGaitan" src="img/gaitan.png" height="300px">
+						<div id="preguntas">
+							<p id="preguntasResponde">Responde la siguiente pregunta: </p>
+							<p>¿Quien soy yo?</p><p>A mi muerte se le atribuye el inicio del Bogotazo</p><br>
+							<b id="pregunta" onclick="equivocado()">a)  Michelsen</b><br><br>
+							<b id="pregunta" onclick="acertadoAzul()">b)  Gaitan</b><br><br>
+							<b id="pregunta" onclick="equivocado()">c)  Belisario</b><br><br>
+						</div>
+					</div>`;
+					mover = false;
+			}
+
+
+
+			function pregVerde() {
+				if(posX > 758 && posX < 766 && posY < -170 && posY > -178 && !llaveVerde)aparecerPregVerde();
+			}
+
+			function aparecerPregVerde(){
+				espacio.innerHTML = `
+					<div id="semiFondo"></div>
+					<div id="pregunta1">
+						<img id="simonBolivar" src="img/caballo/SimonBolivar.png" height="300px">
+						<div id="preguntas">
+							<p id="preguntasResponde">Responde la siguiente pregunta: </p>
+							<p>¿Quien soy yo?</p><p>Logre la libertad de diferentes paises suramericanos</p><br>
+							<b id="pregunta" onclick="equivocado()">a)  Fernadez Rodrigo del Toro</b><br><br>
+							<b id="pregunta" onclick="equivocado()">b)  Manuel del Mato</b><br><br>
+							<b id="pregunta" onclick="acertadoVerde()">c)  Simon Bolivar</b><br><br>
+						</div>
+					</div>`;
+					mover = false;
+			}
+
+
+
+
+
+			function pregAmarilla() {
+				if(posX > 490 && posX < 498 && posY < -120 && posY > -128 && !llaveAmarilla)aparecerPregAmarilla();
+			}
+
+
+
+			function aparecerPregAmarilla(){
+				espacio.innerHTML = `
+					<div id="semiFondo"></div>
+					<div id="pregunta1">
+						<img id="antonioNarino" src="img/caballo/AntonioNarino.png" height="250px">
+						<div id="preguntas">
+							<p id="preguntasResponde">Responde la siguiente pregunta: </p>
+							<p>¿Quien soy yo?</p><p>Peleé contra los Realistas en 1813, ahora mi apellido lo lleva la Residencia oficial del presidente<br>de Colombia</p><br>
+							<b id="pregunta" onclick="acertadoAmarilla()">a)  Antonio Nariño</b><br><br>
+							<b id="pregunta" onclick="equivocado()">b)  Simon Bolivar</b><br><br>
+							<b id="pregunta" onclick="equivocado()">c)  Cesar Carrión</b><br><br>
+						</div>
+					</div>`;
+					mover = false;
+			}
+
+
+			function pregRoja() {
+				if(posX > 574 && posX < 582 && posY < -370 && posY > -380 && !llaveRoja)aparecerPregRoja();
+			}
+
+
+
+			function aparecerPregRoja(){
+				espacio.innerHTML = `
+					<div id="semiFondo"></div>
+					<div id="pregunta1">
+						<img id="policarpaSalavarrieta" src="img/caballo/PolicarpaSalavarrieta.png" height="400px">
+						<div id="preguntas">
+							<p id="preguntasResponde">Responde la siguiente pregunta: </p>
+							<p>¿Que papel desempeñe durante la independencia de Colombia?</p><p>Soy Policarpa Salavarrieta, conocida tambien como la Pola, fui<br>arrestada y fusilada en 1817 en la plaza Mayor de Bogotá</p><br>
+							<b id="pregunta" onclick="equivocado()">a)  Abogada</b><br><br>
+							<b id="pregunta" onclick="equivocado()">b)  Libertadora</b><br><br>
+							<b id="pregunta" onclick="acertadoRoja()">c)  Comunera</b><br><br>
+						</div>
+					</div>`;
+					mover = false;
+			}
+
+			puerta = document.getElementById("puerta");
+
+			function meta() {
+				// if (posX >= 520 && posX <= 570 && posY >= 290 && posY <= 400) {
+				// 	alert("ganaste");
+				// }
+				if (posX == 645.0999999999999 && posY == -508.7999999999998) {
+					if(llaveAzul && llaveVerde && llaveAmarilla && llaveRoja){
+						swal("Quinto Nivel Completado", "Ahora solo dale al boton siguiente para continuar", "success", {
+
+								buttons: ["Continuar","Reintentar"]
+
+						});
+
+						mover = false
+						cab.style.display = "none";
+						sig.style.display = "inline";
+						sonidos.innerHTML = "";
+						sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay></audio>`;
+						puerta.style.display = "none";
+					} else{
+						swal("¡Puerta Cerrada!", "Consigue las cuatro llaves para terminar el nivel", "warning")
+					}
+				}
+			}
+
+			function acertadoAzul(){
+				sonidos.innerHTML = "";
+				if (!llaveAzul){
+					acertado();
+					llaveAzul = true;
+					LLaveAzul.style.display = "block";
+				}
+			}
+
+			function acertadoVerde(){
+				sonidos.innerHTML = "";
+				if (!llaveVerde){
+					acertado();
+					llaveVerde = true;
+					LLaveVerde.style.display = "block";
+				}
+			}
+
+			function acertadoAmarilla(){
+				sonidos.innerHTML = "";
+				if (!llaveAmarilla){
+					acertado();
+					llaveAmarilla = true;
+					LLaveAmarillo.style.display = "block";
+				}
+			}
+
+			function acertadoRoja(){
+				sonidos.innerHTML = "";
+				if (!llaveRoja){
+					acertado();
+					llaveRoja = true;
+					LLaveRojo.style.display = "block";
+				}
+			}
+
+
+			function acertado(){
+				swal("Acertaste", "", "success", {
+
+					buttons: ["Continuar","Reintentar"]
+
+				});
+				mover = true;
+				espacio.innerHTML = "";
+				sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay></audio>`;
+
+				// setTimeout( function() { window.location.href = "https://professor-falken.com"; }, 5000 );
+			}
+
+
+			function equivocado(){
+				swal("Te equivocaste", "", "error", {
+
+					buttons: ["Continuar","Reintentar"]
+
+				});
+				sonidos.innerHTML = "";
+				sonidos.innerHTML += `<audio id="erroneo" src="audio/erroneo.mp3" autoplay></audio>`;
+
+				sig.style.display = "none";
+			}
+
+
+			//Cosas para las preguntas
+
+			espacio = document.getElementById("espacio");
+
+
+			function comprueba() {
+				ingreso = document.getElementById("ingresoPresi").value;
+				if (ingreso == "Gaitan" || ingreso == "gaitan") {
+					acertado();
+					mover = true;
+					espacio.innerHTML = "";
+				} else{
+					equivocado();
+				}
+			}
+
+			// comprobar = document.getElementById("comprobar");
+
+			// comprobar.addEventListener("click", comprueba, false);
+
+			mover = true;
+
+			// window.onkeydown = prTecla();
+
+			document.addEventListener("keydown",prTecla);
+
+
+
+			espacioDuda = document.getElementById("espacioDuda");
+
+			function duda(){
+				espacioDuda.innerHTML = `
+					<div id="semiFondo" onclick="noDuda()"></div>
+					<div id="pregunta1">
+						<div id="InfoText1">
+							Usa las teclas W - A - S - D para movilizarte por el mapa
+						</div>
+						<div id="InfoText2">
+							Cuando pases por alguna de estas banderitas deberas de contestar la pregunta que se te ponga correctamente para recibir una llave
+						</div>
+						<div id="InfoText3">
+							Cuando consigas las cuatro podras dirigirte a la salida y terminar el nivel
+						</div>
+						<!--<div id="InfoText">
+							Primero deberas de seleccionar en la primera fila el primer concepto que quieras conectar
+							<br>
+							Luego lo puedes relacionar haciendo click con otro concepto de la segunda fila
+							<br><br><br><br><br><br><br><br><br>
+							En caso de que te equivoques saldra una alerta que indicara que te equivocaste
+						</div>-->
+						<img id="InfoPart1" src="img/info/nivel5/nivel5part1.png">
+						<img id="InfoPart2" src="img/info/nivel5/nivel5part2.png">
+						<img id="InfoPart3" src="img/info/nivel5/nivel5part3.png">
+						<div class="boton" id="noDuda" onclick="noDuda()">Seguir Jugando</div>
+					</div>`;
+			}
+
+			function noDuda(){
+				espacioDuda.innerHTML = "";
+			}
+
+
+		</script>
+	</body>
+</html>

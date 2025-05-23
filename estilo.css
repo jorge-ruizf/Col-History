@@ -1,0 +1,84 @@
+/*estilos_creditos*/
+.color
+{
+    color: blue;
+}
+html
+{
+    background: -webkit-repeating-linear-gradient(yellow, yellow,rgb(0, 47, 255),red);
+}
+.caja-menu
+{
+    position: fixed;
+    background: -moz-linear-gradient(to right blue, red);
+}
+#inicio
+{
+    text-align: center;
+}
+.div-bo
+{
+    text-align: center;
+    display: flex;
+    background: -webkit-repeating-linear-gradient(rgb(9, 255, 0),rgb(0, 255, 132),rgb(157, 0, 255));
+    
+}
+a:hover
+{
+    color: red;
+}
+::selection{
+	background-color: #00fffb;
+	color:#ff0000;
+}
+.marco
+{
+    width: 50%;
+    height: 50%;
+    flex-direction:column;
+}
+.fotos
+{
+   height: 200px;
+}
+/*.sub-marco
+{
+    background: #232526; 
+	background: -webkit-linear-gradient(to bottom, #0080ff, #ff0000);  
+	background: linear-gradient(to bottom, #0080ff, #ff0000);		
+	margin-top: 50%;
+	width: 95.5%;
+	transition: all 1s;
+}
+.min-marco
+{
+    margin-top: 50%;
+	width: 60%;
+	height: 50%;
+	opacity: 0;
+	z-index: -1;
+	transition: all 1s;
+	visibility: hidden;
+}*/
+.submarco:hover>i{
+	transform: rotate(360deg);
+	cursor: pointer;
+}
+.submarco:hover>.min-marco
+{
+	margin-top: 5%;
+	opacity: 1;
+	visibility: visible;
+	cursor: pointer;
+}
+.sub-marco i
+{
+	width: 50px;
+	box-sizing: border-box;
+	margin-left: 2%;
+	transition: all 1s;
+	color: #BAFBFF;
+	z-index: 150;
+	transition: all 1s;
+	font-size: 19px;
+}

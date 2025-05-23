@@ -1,0 +1,106 @@
+body{
+    background-image:url("../img/fondo1.png"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: cursive;
+    padding: 5px;
+
+}
+._jeb {
+    transition: 1s;
+    animation-duration: 5s;
+    animation-name: _jeb;
+    animation-iteration-count: infinite;
+}
+
+div#header {
+    text-indent: 16em;
+}
+._jeb {
+    transition: 1s;
+    animation-duration: 5s;
+    animation-name: _jeb;
+    animation-iteration-count: infinite;
+}
+
+@keyframes _jeb {
+    0% {
+        color: blue;
+    }
+
+    50% {
+        color: red;
+    }
+
+    100% {
+        color: blue;
+    }
+}
+.boton{
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px black dashed;
+    text-decoration: none;
+    background-size: cover;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    transition: 0.5s;
+}
+div#CentroControl{
+    position: absolute;
+    left: 42%;
+}
+
+
+#comprobar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 235px;
+    height: 50px;
+    background: #141414;
+    color: #fff;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: .3s ease all;
+    border-radius: 7px;
+    position: relative;
+    overflow: hidden;
+}
+
+#comprobar span{
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+
+#comprobar::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: calc(-100% - 80px);
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #286cff;
+    
+    transition: .4s ease-in-out all;
+}
+
+#comprobar:hover::after {
+    left: 0;
+}
+
+._jeb {
+    transition: 1s;
+    animation-duration: 5s;
+    animation-name: _jeb;
+    animation-iteration-count: infinite;
+}

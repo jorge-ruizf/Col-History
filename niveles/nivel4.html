@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>COL history 2.0|nivel4</title>
+	<link rel="icon" href="img/logosimp.png">
+	<style type="text/css">
+		body{
+			background-image:url("img/fondo1.png"); 
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center center;
+			font-family: cursive;
+			padding: 5px;
+
+		}
+
+		div#header {
+			text-indent: 16em;
+		}
+
+		.link{
+			text-decoration: none;
+		}
+		.boton{
+			background-color: white;
+			padding: 5px;
+			border-radius: 5px;
+			text-decoration: none;
+			background-size: cover;
+			text-decoration: none;
+			color: rgb(0, 0, 0);
+			font-size: 20px;
+			transition: 0.5s;
+		}
+
+		.boton:hover {
+			color: white;
+			background-color: black;
+		}
+
+		div#indicaciones {
+			background-color: rgba(250, 250, 250, 0.7);
+			backdrop-filter: blur(10PX);
+			position: sticky;
+			top: 0px;
+			width: 500px;
+			display: inline-block;
+			margin: auto;
+			padding: 25px;
+			border-radius: 50px;
+		}
+
+		h2 {
+			text-indent: 2em;
+		}
+
+		b {
+			font-weight: normal;
+		}
+
+		.amarrillo {
+			color: gold;
+		}
+
+		.rojo {
+			color: red;
+		}
+
+		.azul {
+			color: royalblue;
+		}
+
+
+		.casilla {
+			width: 30px;
+			height: 30px;
+			text-align: center;
+		}
+
+		table {
+			margin-left: 50px;
+			width: 590px;
+			display: inline-block;
+		}
+
+		div#tabla {
+			position: absolute;
+			margin-top: -500px;
+			margin-left: 550px;
+		}
+
+		div#espacioPorDebajo {
+			margin-bottom: 400px;
+		}
+
+		img#gif {
+			position: absolute;
+			margin-top: -300px;
+			margin-left: 650px;
+		}
+
+
+
+	</style>
+	</head>
+	<body>
+		<!-- 14 de largo y  22 de alto crucigrama-->
+		<div><a class="link boton" href="brochureColhistory.html">acerca de </a></div>
+		<div id="header">
+			<h1><b class="amarrillo">N</b><b class="azul">I</b><b class="rojo">V</b><b class="amarrillo">E</b><b class="azul">L</b> <b class="rojo">4</b></h1>
+			<h3><b class="amarrillo">C</b><b class="azul">o</b><b class="rojo">m</b><b class="amarrillo">p</b><b class="azul">l</b><b class="rojo">e</b><b class="amarrillo">t</b><b class="azul">a</b></h3>
+		</div>
+		<div id="contenedor">
+			<div id="indicaciones">
+				<h2><b class="rojo">Horizontales</b></h2>
+				<p><b class="rojo">1.</b> Partido del pueblo, de izquierda democratica</p>
+				<p><b class="rojo">3.</b> Paso despues del asesinato de Jorge Eliecer Gaitan en 1948</p>
+				<p><b class="rojo">4.</b> Capital del Valle del cauca</p>
+				<p><b class="rojo">7.</b> Grupos armados que participaron en las guerras civiles de Colombia y en La Violencia Bipartista</p>
+				<h2><b class="azul">Verticales</b></h2>
+				<p><b class="azul">2.</b> Lider de la campaña libertadora colombiana</p>
+				<p><b class="azul">5.</b> Periodo historico en Colombia, entre 1925 y 1958, en el cual se presentaron confrontaciones armadas entre partiarios del Partido Liberal y del Partido Conservador</p>
+				<p><b class="azul">6.</b> Lideraron al pais desde 1886 hasta 1930</p>
+			</div>
+
+			<div id="tabla">
+				<table id="Crucigrama">
+					<tr>
+						<td>
+							<input type="text" name="A1" class="casilla" maxlength="1" id="A1" placeholder="1">
+						</td>
+						<td>
+							<input type="text" name="A2" class="casilla" maxlength="1" id="A2">
+						</td>
+						<td>
+							<input type="text" name="A3" class="casilla" maxlength="1" id="A3">
+						</td>
+						<td>
+							<input type="text" name="A4" class="casilla" maxlength="1" id="A4">
+						</td>
+						<td>
+							<input type="text" name="A5" class="casilla" maxlength="1" id="A5">
+						</td>
+						<td>
+							<input type="text" name="A6" class="casilla" maxlength="1" id="A6">
+						</td>
+						<td>
+							<input type="text" name="A7" class="casilla" maxlength="1" id="A7">
+						</td>
+						<td>
+							<input type="text" name="A8" class="casilla" maxlength="1" id="A8">
+						</td>
+						<td>
+							<input type="text" name="A9" class="casilla" maxlength="1" id="A9" placeholder="2">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="B9" class="casilla" maxlength="1" id="B9">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="C9" class="casilla" maxlength="1" id="C9">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input type="text" name="D2" class="casilla" maxlength="1" id="B2" placeholder="3">
+						</td>
+						<td>
+							<input type="text" name="D3" class="casilla" maxlength="1" id="B3">
+						</td>
+						<td>
+							<input type="text" name="D4" class="casilla" maxlength="1" id="B4">
+						</td>
+						<td>
+							<input type="text" name="D5" class="casilla" maxlength="1" id="B5">
+						</td>
+						<td>
+							<input type="text" name="D6" class="casilla" maxlength="1" id="B6">
+						</td>
+						<td>
+							<input type="text" name="D7" class="casilla" maxlength="1" id="B7">
+						</td>
+						<td>
+							<input type="text" name="D8" class="casilla" maxlength="1" id="B8">
+						</td>
+						<td>
+							<input type="text" name="D9" class="casilla" maxlength="1" id="B9">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="E9" class="casilla" maxlength="1" id="E9">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="F9" class="casilla" maxlength="1" id="F9">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="G9" class="casilla" maxlength="1" id="G9">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="H7" class="casilla" maxlength="1" id="H7" placeholder="4">
+						</td>
+						<td>
+							<input type="text" name="H8" class="casilla" maxlength="1" id="H8">
+						</td>
+						<td>
+							<input type="text" name="H9" class="casilla" maxlength="1" id="H9">
+						</td>
+						<td>
+							<input type="text" name="H10" class="casilla" maxlength="1" id="H10">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="I9" class="casilla" maxlength="1" id="I9">
+						</td>
+						<td></td>
+						<td>
+							<input type="text" name="I11" class="casilla" maxlength="1" id="I11" placeholder="5">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="I14" class="casilla" maxlength="1" id="I14" placeholder="6">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="I9" class="casilla" maxlength="1" id="I9">
+						</td>
+						<td></td>
+						<td>
+							<input type="text" name="I11" class="casilla" maxlength="1" id="I11">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="I14" class="casilla" maxlength="1" id="I14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="I9" class="casilla" maxlength="1" id="I9">
+						</td>
+						<td></td>
+						<td>
+							<input type="text" name="I11" class="casilla" maxlength="1" id="I11">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="I14" class="casilla" maxlength="1" id="I14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="J5" class="casilla" maxlength="1" id="J5" placeholder="7">
+						</td>
+						<td>
+							<input type="text" name="J6" class="casilla" maxlength="1" id="J6">
+						</td>
+						<td>
+							<input type="text" name="J7" class="casilla" maxlength="1" id="J7">
+						</td>
+						<td>
+							<input type="text" name="J8" class="casilla" maxlength="1" id="J8">
+						</td>
+						<td>
+							<input type="text" name="J9" class="casilla" maxlength="1" id="J9">
+						</td>
+						<td>
+							<input type="text" name="J10" class="casilla" maxlength="1" id="J10">
+						</td>
+						<td>
+							<input type="text" name="J11" class="casilla" maxlength="1" id="J11">
+						</td>
+						<td>
+							<input type="text" name="J12" class="casilla" maxlength="1" id="J12">
+						</td>
+						<td>
+							<input type="text" name="J13" class="casilla" maxlength="1" id="J13">
+						</td>
+						<td>
+							<input type="text" name="J14" class="casilla" maxlength="1" id="J14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="K11" class="casilla" maxlength="1" id="K11">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="K14" class="casilla" maxlength="1" id="K14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="L11" class="casilla" maxlength="1" id="L11">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="L14" class="casilla" maxlength="1" id="L14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="M11" class="casilla" maxlength="1" id="M11">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="M14" class="casilla" maxlength="1" id="M14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="N11" class="casilla" maxlength="1" id="N11">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="N14" class="casilla" maxlength="1" id="N14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="O11" class="casilla" maxlength="1" id="O11">
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="O14" class="casilla" maxlength="1" id="O14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="P14" class="casilla" maxlength="1" id="P14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="Q14" class="casilla" maxlength="1" id="Q14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="R14" class="casilla" maxlength="1" id="R14">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" name="S14" class="casilla" maxlength="1" id="S14">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="espacioPorDebajo"></div>
+		<img id="gif" src="img/49-PM-unscreen.gif">
+		<br>
+		<br>
+		<a class="boton" href="nivel3.html"><< anterior</a>
+		<a class="boton" href="nivel5.html">siguiente >></a>
+	</body>
+
+</html>

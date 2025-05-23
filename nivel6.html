@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>COL history 2.0|nivel6</title>
+	<link rel="icon" href="img/logosimp.png">
+	<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+	<script type="text/javascript" src="javascript/sweetalert.js"></script>
+	<style type="text/css">
+
+		body{
+			background-image:url("img/fondo1.png"); 
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center center;
+			font-family: cursive;
+			padding: 5px;
+			scroll-behavior: none;
+			overflow-x: hidden;
+
+		}
+
+		h1, h3 {
+			margin-left: 250px;
+		}
+
+		h3 {
+			padding: 5px;
+			width: 200px;
+		}
+
+		b {
+			font-weight: normal;
+		}
+
+		.amarrillo {
+			color: yellow;
+		}
+
+		.rojo {
+			color: red;
+		}
+
+		.azul {
+			color: blue;
+		}
+
+
+		div#CentroControl{
+			position: absolute;
+			left: 42%;
+		}
+
+		.boton{
+			background-color: white;
+			padding: 5px;
+			border-radius: 5px;
+			border: 2px black dashed;
+			text-decoration: none;
+			background-size: cover;
+			text-decoration: none;
+			color: rgb(0, 0, 0);
+			font-size: 20px;
+			transition: 0.5s;
+		}
+
+		.boton:hover {
+			/*color: white;*/
+			/*background-color: black;*/
+			/*border: 2px white dashed;*/
+			filter: invert(100%);
+		}
+
+		.conceptos {
+			cursor: pointer;
+			text-align: center;
+			padding: 10px;
+			border-radius: 15px;
+			width: 200px;
+			background-color: white;
+			transition: 0.5s;
+		}
+
+		.conceptos2 {
+			cursor: pointer;
+			text-align: center;
+			padding: 10px;
+			border-radius: 15px;
+			width: 500px;
+			margin-left: 200px;
+			background-color: white;
+			transition: 0.5s;
+		}
+
+		.conceptos:hover {
+			transform: scale(1.3);
+			border: blue 2px solid;
+		}
+
+		.conceptos2:hover {
+			transform: scale(1.3);
+			border: red 2px solid;
+		}
+
+		#comprobar {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 235px;
+			height: 50px;
+			background: #141414;
+			color: #fff;
+			font-family: cursive;
+			font-size: 20px;
+			font-weight: 500;
+			border: none;
+			cursor: pointer;
+			transition: .3s ease all;
+			border-radius: 7px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#comprobar span{
+			position: relative;
+			z-index: 2;
+			transition: .3s ease all;
+		}
+
+		#comprobar::after{
+			content: "";
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: calc(-100% - 80px);
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #286cff;
+			
+			transition: .4s ease-in-out all;
+		}
+
+		#comprobar:hover::after {
+			left: 0;
+		}
+
+        #reiniciar {
+			margin-bottom: 5px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 235px;
+			height: 50px;
+			background: #141414;
+			color: #fff;
+			font-family: cursive;
+			font-size: 20px;
+			font-weight: 500;
+			border: none;
+			cursor: pointer;
+			transition: .3s ease all;
+			border-radius: 7px;
+			position: relative;
+			overflow: hidden;
+		}
+		#reiniciar span{
+			position: relative;
+			z-index: 2;
+			transition: .3s ease all;
+		}
+
+		#reiniciar::after{
+			content: "";
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: calc(-100% - 80px);
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #286cff;
+			
+			transition: .4s ease-in-out all;
+		}
+
+		#reiniciar:hover::after {
+			left: 0;
+		}
+
+		table#tabla {
+			margin: auto;
+			height: 1000px;
+			z-index: 2;
+		}
+
+
+		div.slide-slow {
+			width: 100%;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+			-webkit-transform: scaleX(-1); 
+		}
+
+		div.slide-slow div.bandera {
+			animation: slide-slow 30s;
+			margin-top: 0%;
+		}
+
+		@keyframes slide-slow {
+			from {
+				transform: translateX(70%);
+				opacity: 0;
+			} to {
+				transform: translateX(5px);
+				opacity: 1;
+			}
+		}
+
+		._jeb {
+			transition: 1s;
+			animation-duration: 5s;
+			animation-name: _jeb;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes _jeb{
+			0% {
+				color: blue;
+			}
+
+			50% {
+				color: red;
+			}
+
+			100% {
+				color: blue;
+			}
+		}
+		 #canvas{
+        	/*background-color: rgba(0, 0, 0, .5);*/
+        	position: absolute;
+        	height: 850px;
+        	width: 210px;
+        	top: 250px;
+        	left: 420px;
+
+		}
+
+		#irMenu {
+			position: fixed;
+			right: -5px;
+		}
+
+		#irMenuText {
+			position: absolute;
+			z-index: 21;
+			margin-left: 50px;
+			margin-top: 35px;
+			color: white;
+			font-size: 50px;
+			font-weight: bold;
+			-webkit-text-stroke: 1px gray;
+		}
+
+		#banderaC {
+			transform: scaleX(-1);
+			z-index: 20;
+			width: 205px;
+		}
+
+		#sig {
+			display: none;
+		}
+
+		#canvas{
+			/*background-color: white;*/
+			/*border: 1px solid black;*/
+		}
+
+
+		#semiFondo{
+			z-index: 40;
+			position: fixed;
+			width: 100%;
+			/*height: 657px;*/
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(14, 14, 14, .3);
+		}
+
+
+
+		#pregunta1 {
+			z-index: 41;
+			position: fixed;
+			width: 800px;
+			height: 500px;
+			background-color: white;
+			border-radius: 30px;
+			left: calc(50% - 400px);
+			top: 78.55px;
+		}
+
+
+		div#duda {
+			position: fixed;
+			bottom: 5px;
+			left: 5px;
+		}
+
+		img#duda {
+			width: 40px;
+			filter: invert(100%);
+		}
+
+		div#noDuda {
+			position: absolute;
+			text-align: center;
+			width: 250px;
+			margin-left: 275px;
+			margin-top: 425px;
+		}
+
+		img#InfoPart1 {
+			position: absolute;
+			margin-top: 50px;
+			margin-left: 25px;
+			width: 250px;
+		}
+
+		img#InfoPart2 {
+			position: absolute;
+			margin-top: 180px;
+			margin-left: 325px;
+			width: 450px;
+		}
+
+		img#InfoPart3 {
+			position: absolute;
+			margin-top: 300px;
+			margin-left: 50px;
+			width: 200px;
+		}
+
+		div#InfoText {
+			position: absolute;
+			margin-top: 75px;
+			margin-left: 300px;
+		}
+
+		div#politico1{
+			z-index: -20;
+			position: absolute;
+			margin-top: -1000px;
+			margin-left: 50px;
+			transform: scaleX(-1.0) rotate(15deg);
+		}
+
+		div#soldado1{
+			z-index: -20;
+			position: absolute;
+			margin-top: -800px;
+			margin-left: 1150px;
+			transform: rotate(10deg);
+		}
+
+		div#soldado2{
+			z-index: -20;
+			position: absolute;
+			margin-top: -600px;
+			margin-left: 470px;
+			transform: rotate(340deg);
+		}
+
+		div#soldado3{
+			z-index: -20;
+			position: absolute;
+			margin-top: -30px;
+			margin-left: 400px;
+			transform: scaleX(-1.0);
+		}
+
+
+	</style>
+	</head>
+	<body>
+
+		<div id="espacioDuda"></div>
+
+		<canvas id="canvas" style="z-index:-1" width="200px" height="100px"></canvas>
+
+		<a id="irMenu" href="menu.html"><div id="irMenuText">menu</div><img src="Bandera de Colombia animada simple.gif" alt="Bandera Colombiana" id="banderaC"></a>
+		<h1 class="_jeb">NIVEL 6</h1>
+		<div class="_jeb"><h3>Conecta los Conceptos</h3></div>
+		<br>
+		<table id="tabla">
+			<tr>
+				<td>
+					<div class="conceptos" onclick="Fila1(1)"><p>Guerra de los mil dias</p></div>
+				</td>
+				<td>
+					<div class="conceptos2" onclick="conectar(1)"><p>confrontacion final de la campaña de independencia</p></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="conceptos" onclick="Fila1(2)"><p>Batalla de boyaca</p></div>
+				</td>
+				<td>
+					<div class="conceptos2" onclick="conectar(2)"><p>guerra civil entre conservadores y libertadores 1899-1902</p></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="conceptos" onclick="Fila1(3)"><p>Hegemonia conservadora</p></div>
+				</td>
+				<td>
+					<div class="conceptos2" onclick="conectar(3)"><p>periodo de poder situado a lo largo de 1886-1930</p></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="conceptos" onclick="Fila1(4)"><p>Frente Nacional</p></div>
+				</td>
+				<td>
+					<div class="conceptos2" onclick="conectar(4)"><p>Guerra asimétrica de baja intensidad que se desarrolla en Colombia desde 1960, involucra a las guerrillas.</p></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="conceptos" onclick="Fila1(5)"><p>Conflicto Armado</p></div>
+				</td>
+				<td>
+					<div class="conceptos2" onclick="conectar(5)"><p>Acuerdo politico entre conservadores y libertadores en el que se reparten el poder de 1958 a 1974</p></div>
+				</td>
+			</tr>
+			
+		</table>
+
+		<div id="duda" onclick="duda()">
+			<img src="img/Iconos/IconPregNegro.png" id="duda">
+		</div>
+		
+
+		<br><br>
+
+		<div id="politico1">
+			<img width="100px" src="img/PoliticoGuerra.png">
+		</div>
+
+		<div id="soldado1">
+			<img width="130px" src="img/SoldadoGuerra.png">
+		</div>
+
+		<div id="soldado2">
+			<img width="120px" src="img/SoldadoGuerra.png">
+		</div>
+
+		<div id="soldado3">
+			<img width="125px" src="img/SoldadoGuerra.png">
+		</div>
+		
+
+		<div id="CentroControl">
+			<!-- <button name="reiniciar" id="reiniciar"><span>Reiniciar</span></button> -->
+			<br>
+			
+			<button name="comprobar" id="comprobar"><span>Comprobar</span></button>
+			<br><br>
+			<a class="boton" id="ant" href="nivel5.html"><< anterior</a>
+			<a class="boton" id="sig" href="felicitaciones.html">siguiente >></a>
+		</div>
+
+		<br><br><br><br><br><br><br><br>
+		
+		<div id="sonidos">
+			<!-- <audio id="correcto" src="audio/correcto.mp3" autoplay></audio> -->
+		</div>
+
+		<script type="text/javascript">
+
+			var fila1 = 0;
+			let comprobar = document.getElementById("comprobar");
+			let sig = document.getElementById("sig");
+
+			var filaA = [5];
+			var filaA1 = false;
+			var filaB1 = false;
+			var filaC1 = false;
+			var filaD1 = false;
+			var filaE1 = false;
+
+
+
+			comprobar.addEventListener("click", Comprobar, false);
+
+			// const audioAcertado = document.getElementById("correcto");
+
+			function dibujar1() {
+				var linea1 = document.querySelector("canvas").getContext("2d");
+				linea1.moveTo(0,1.1);
+				linea1.lineTo(200,22.5);
+				linea1.strokeStyle = "rgb(240,15,15)";
+				linea1.stroke();
+				linea1.stroke();
+			}
+
+			function dibujar2() {
+				var linea2 = document.querySelector("canvas").getContext("2d");
+				linea2.moveTo(0,22.5);
+				linea2.lineTo(200,1.5);
+				linea2.strokeStyle = "rgb(240,15,15)";
+				linea2.stroke();
+				linea2.stroke();
+			}
+
+			function dibujar3() {
+				var linea3 = document.querySelector("canvas").getContext("2d");
+				linea3.moveTo(0,44.5);
+				linea3.lineTo(200,44.5);
+				linea3.strokeStyle = "rgb(240,15,15)";
+				linea3.stroke();
+				linea3.stroke();
+			}
+
+			function dibujar4() {
+				var linea4 = document.querySelector("canvas").getContext("2d");
+				linea4.moveTo(0,68);
+				linea4.lineTo(200,96);
+				linea4.strokeStyle = "rgb(240,15,15)";
+				linea4.stroke();
+				linea4.stroke();
+			}
+
+			function dibujar5() {
+				var linea5 = document.querySelector("canvas").getContext("2d");
+				linea5.moveTo(0,96);
+				linea5.lineTo(200,68);
+				linea5.strokeStyle = "rgb(240,15,15)";
+				linea5.stroke();
+				linea5.stroke();
+			}
+
+
+			function Fila1(fil1){
+				fila1 = fil1;
+			}
+
+			function conectar(fila2){
+				filaA[fila1] = fila2; 
+				if(fila1 == 1 && fila2 == 2){
+					filaA1 = true;
+					dibujar1();
+				}
+				else if(fila1 == 1 && fila2 == 2 || fila1 == 2 && fila2 == 1 || fila1 == 3 && fila2 == 3 || fila1 == 4 && fila2 == 5 || fila1 == 5 && fila2 == 4);
+				else equivocado();
+
+				if(fila1 == 2 && fila2 == 1){
+					filaA2 = true;
+					dibujar2();
+				}
+				else if(fila1 == 1 && fila2 == 2 || fila1 == 2 && fila2 == 1 || fila1 == 3 && fila2 == 3 || fila1 == 4 && fila2 == 5 || fila1 == 5 && fila2 == 4);
+				else equivocado();
+
+				if(fila1 == 3 && fila2 == 3){
+					filaA3 = true;
+					dibujar3();
+				}
+				else if(fila1 == 1 && fila2 == 2 || fila1 == 2 && fila2 == 1 || fila1 == 3 && fila2 == 3 || fila1 == 4 && fila2 == 5 || fila1 == 5 && fila2 == 4);
+				else equivocado();
+
+				if(fila1 == 4 && fila2 == 5){
+					filaA4 = true;
+					dibujar4();
+				}
+				else if(fila1 == 1 && fila2 == 2 || fila1 == 2 && fila2 == 1 || fila1 == 3 && fila2 == 3 || fila1 == 4 && fila2 == 5 || fila1 == 5 && fila2 == 4);
+				else equivocado();
+
+				if(fila1 == 5 && fila2 == 4){
+					filaA5 = true;
+					dibujar5();
+				}
+				else if(fila1 == 1 && fila2 == 2 || fila1 == 2 && fila2 == 1 || fila1 == 3 && fila2 == 3 || fila1 == 4 && fila2 == 5 || fila1 == 5 && fila2 == 4);
+				else equivocado();
+
+			}
+
+
+			function acertado(){
+				swal("Ultimo Nivel Completado", "Ahora solo dale al boton siguiente para continuar", "success", {
+
+					buttons: ["Continuar","Reintentar"]
+
+				});
+				sonidos.innerHTML = "";
+				sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay ></audio>`;
+
+				sig.style.display = "inline";
+			}
+
+
+			function equivocado2(){
+				swal("¡Revisa tus respuestas!", "Aun te faltan elementos por relacionar", "error", {
+
+					buttons: ["Continuar","Reintentar"]
+
+				});
+				sonidos.innerHTML = "";
+				sonidos.innerHTML += `<audio id="erroneo" src="audio/erroneo.mp3" autoplay></audio>`;
+			}
+
+			function equivocado(){
+				swal("¡Te equivocaste!", "", "error", {
+
+					buttons: ["Continuar","Reintentar"]
+
+				});
+				sonidos.innerHTML = "";
+				sonidos.innerHTML += `<audio id="erroneo" src="audio/erroneo.mp3" autoplay></audio>`;
+			}
+
+
+			function Comprobar(){
+				if (filaA1 && filaA2 && filaA3 && filaA4 && filaA5) {
+					sonidos.innerHTML = ``;
+					acertado();
+				} else{
+					sonidos.innerHTML = ``;
+					equivocado2();
+				}
+			}
+
+			espacioDuda = document.getElementById("espacioDuda");
+
+			function duda(){
+				espacioDuda.innerHTML = `
+					<div id="semiFondo" onclick="noDuda()"></div>
+					<div id="pregunta1">
+						<div id="InfoText">
+							Primero deberas de seleccionar en la primera fila el primer concepto que quieras conectar
+							<br>
+							Luego lo puedes relacionar haciendo click con otro concepto de la segunda fila
+							<br><br><br><br><br><br><br><br><br>
+							En caso de que te equivoques saldra una alerta que indicara que te equivocaste
+						</div>
+						<img id="InfoPart1" src="img/info/nivel6/nivel6part1.png">
+						<img id="InfoPart2" src="img/info/nivel6/nivel6part2.png">
+						<img id="InfoPart3" src="img/info/nivel6/nivel6part3.png">
+						<div class="boton" id="noDuda" onclick="noDuda()">Seguir Jugando</div>
+					</div>`;
+			}
+
+			function noDuda(){
+				espacioDuda.innerHTML = "";
+			}
+
+
+
+
+/*
+var id;
+var src;
+var id_respuesta;
+var elemento_respuesta;
+var solucion;
+var encontro;
+var rBuenas = 0;
+
+function iniciar(){
+	alert ("Hola estamos en ARRASTRA Y PEGA");
+	//creamos el vector solucion para guardar la solucion de la preguntas
+	solucion = [14,23,32,41]
+	var consola=document.getElementById("consola");
+	/*seleccionamos todos los objetos img que estan 
+	en el contenedor con id = "cajaimagenes"y lo colocamos en 
+	el array "imagenes"(preguntas)
+
+	var imagenes = document.querySelectorAll("#cajaimagenes img");
+	for (var i = 0;i<imagenes.length;i++) {
+		imagenes[i].addEventListener("dragstart",inicia_arrastre,false);
+		imagenes[i].addEventListener("dragend",terminado,false)
+	}
+
+	var respuestas= document.querySelectorAll("#respuestas section");
+
+	for (var i = 0;i<respuestas.length;i++){
+		respuestas[i].addEventListener("dragenter",function(e){e.preventDefault();},false);
+		respuestas[i].addEventListener("dragover",entrando,false);
+		respuestas[i].addEventListener("drop",soltado,false);
+		respuestas[i].addEventListener("dragleave",saliendo,false);
+	}
+}
+	function inicia_arrastre(e){
+		//alert("inicio arrastre");
+		//debemos identificar cual elemento desencadeno la accion
+		var elemento = e.target;
+		id = elemento.id;
+		src= elemento.src;
+		consola.innerHTML="Pregunta: " + id + " --> " + src
+		//consola.innerHTML="Hola"
+		seleccionarElemento(e)
+	}
+//***********************************************************************************************
+//definimos las var para la informacion de movimiento de las imagenes
+var elementSelect=0
+var currentX = 0
+var currentY = 0
+var currentPosX = 0
+var currentPosY = 0
+
+function seleccionarElemento(evt){
+	//alert("seleccionar Elemento")
+	//coordenadas del mouse cuando se da el click
+	currentX = evt.clientX;
+	currentY = evt.clientY;
+	//consola.innerHTML+="X: " +currentX+ " Y: " + currentY
+	consola.innerHTML+= `<br><br>X: ${currentX} Y: ${currentY}`;
+	//Obtenemos las coordenadas de la pieza a mover
+	currentPosX = parseFloat(elementSelect.getAttribute('x'));
+	currentPosY = parseFloat(elementSelect.getAttribute('y'));
+	//consola.innerHTML+="CX: " +currentPosX+ " CY: " + currentPosY
+	//agregamos el evento de movimiento a la pieza 
+	elementSelect.setAttribute("onmousemove","moverElemento(evt)")
+
+}
+
+function moverElemento(evt){
+	consola.innerHTML +"";
+	consola.innerHTML+="MOVER ELEMENTO"
+	//calculamos la distancia recorrida por el mouse en x y Y
+	var dx = evt.clientX - currentX;
+	var dy = evt.clientY - currentY;
+	//alsoltar el click del  mouse debemos soltar la pieza elegida
+	elementSelect.setAttribute("onmouseout","deseleccionarElemento(evt)"); 
+	elementSelect.setAttribute("onmouseup","deseleccionarElemento(evt)");  
+	//verificamos si la pieza esta cerca de la pósicion correcta !!!!!
+	console.log("SI")
+	iman();
+
+
+}
+function entrando(e){
+	//alert("entrando")
+	e.preventDefault();
+	//debemos identificar cual objeto desencadeno
+	//la accion"entrando"
+	elemento_respuesta = e.target;
+	id_respuesta = elemento_respuesta.id;
+	consola.innerHTML ="entrando-->" +id+" a Respuesta --> "+ id_respuesta;
+	//Buscampos si la respuesta es correcta
+	//si la pareja pregunta + respuesta
+	//esta en el array --> solucion
+	var buscar = id+id_respuesta;
+	encontro = 0;
+	consola.innerHTML = buscar;
+	for (var i = 0;i<solucion.length ;i++) {
+		if (buscar == solucion[i]) {
+			encontro = 1;
+		}
+	}
+	if (encontro == 1) {
+		consola.innerHTML += "** Correcto!! **";
+		elemento_respuesta.style.background = "rgba(8,252,25,0.8)";
+	}
+	else{
+		consola.innerHTML += "** Falso!! **";
+		elemento_respuesta.style.background = "#fa0d29"
+	}
+
+
+}
+function saliendo(e){
+	//Si queremos que no haga nada el navegador
+	//(resetear el comportamiento por defecto)
+	e.preventDefault
+	elemento_respuesta=e.target
+	elemento_respuesta.style.background = "#f000"
+	elemento_respuesta.innerHTML = "Zona de destino"
+}
+function soltado(e){
+	//decirle alnavegador que no realice ninguna accion al soltar la imagen
+	e.preventDefault();
+	elemento_respuesta=e.target
+	if (encontro==1) {
+		elemento_respuesta.innerHTML = "<img src="+ src + ">";
+	}
+	consola.innerHTML +=elemento_respuesta.innerHTML;
+}
+
+function terminado(e){
+	//debemos identificarcual objero desencadeno
+	var elemento = e.target
+	if (encontro==1) {
+		elemento.style.visibility="hidden"
+		//elemento.style.display="none"
+	}
+	else{
+		elemento_respuesta.style.background = "#ffffff"
+	}
+	seleccionarElemento(e);
+}
+
+
+
+
+
+window.addEventListener("load",iniciar,false)
+			} */
+
+		</script>
+	</body>
+</html>

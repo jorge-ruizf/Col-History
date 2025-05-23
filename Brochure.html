@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta charset="ISO-8559-1">
+	<meta name="description" content="Brochure Col History"/>
+	<meta name="keywords" content="HTML5, CSS, JavaScript, IEFAZ, LC, Brochure, Col, History">
+	<title> COL history | Brochure</title>
+	<link rel="icon" href="img/logosimp.png">
+	<style type="text/css">
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+		img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
+			image-rendering: crisp-edges;
+		}
+
+
+		body{
+			background-image:url("img/rustico.png"); 
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center center;
+			font-family: cursive;
+			scroll-behavior: static;
+		}
+
+		.perg{
+			transform: rotate(90deg);
+			position: absolute;
+		}
+
+		#perg1{
+			width: 800px;
+			margin-top: -200px;
+			z-index: 1;
+		}
+
+		#perg2{
+			position: fixed;
+			right: 20px;
+			bottom: -200px;
+		}
+
+
+
+
+		#irMenu {
+			position: fixed;
+			right: -5px;
+		}
+
+		#irMenuText {
+			position: absolute;
+			z-index: 21;
+			margin-left: 50px;
+			margin-top: 35px;
+			color: white;
+			font-size: 50px;
+			font-weight: bold;
+			-webkit-text-stroke: 1px gray;
+		}
+
+		#banderaC {
+			transform: scaleX(-1);
+			z-index: 20;
+		}
+
+		#divPerg1{
+			transition: 1s ease-in-out;
+			animation-duration: 1s;
+			animation-name: Perg1;
+		}
+
+		#divPerg2{
+			transition: 1s ease-in-out;
+			animation-duration: 1s;
+			animation-name: Perg2;
+			transform: translateY(650px);
+			position: relative;
+		}
+
+		#AntecedentesTitulo, #AntecedentesTexto {
+			position: absolute;
+			z-index: 20;
+		}
+
+		#AntecedentesTitulo {
+			margin-left: 235px;
+		}
+
+		#AntecedentesTexto {
+			width: 500px;
+			margin-left: 150px;
+			margin-top: 100px;
+			text-align: center;
+		}
+
+		#ObjetivoTitulo, #ObjetivoTexto {
+			position: fixed;
+			z-index: 20;
+		}
+
+		#ObjetivoTitulo {
+			right: 120px;
+			bottom: 200px;
+		}
+
+		#ObjetivoTexto {
+			width: 350px;
+			right: 130px;
+			bottom: 50px;
+			text-align: center;
+		}
+
+		#TarroYPluma {
+			position: fixed;
+			width: 200px;
+			right: 330px;
+			top: 60px;
+		}
+
+		#brujula {
+			position: fixed;
+			z-index: 20;
+			bottom: 5px;
+			left: 10px;
+		}
+
+		img#brujulaMine{
+			width: 50px;
+		}
+
+		@keyframes Perg1{
+			from{
+				transform: translateY(-700px);
+			}
+			to{
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes Perg2{
+			from{
+				transform: translateY(1100px);
+			}
+			to{
+				transform: translateY(650px);
+			}
+		}
+		#nn{
+			color: black;
+			text-decoration: bold;
+			font-size: 17px;
+		}
+	</style>
+</head>
+<body>
+	<a id="irMenu" href="menu.html"><div id="irMenuText">menu</div><img src="Bandera de Colombia animada simple.gif" alt="Bandera Colombiana" id="banderaC"></a>
+	<div id="divPerg1">
+		<img src="img/pergamino.png" id="perg1" class="perg">
+		<h2 id="AntecedentesTitulo">¿Que problema encontramos?</h2>
+		<p id="AntecedentesTexto">Como equipo hemos visto que aproximadamente el 80% de los estudiantes presenta problemas de aprendizaje en el area de ciencias sociales, especificamente en el campo de historia.
+		En la actualidad repensar la enseñanza de historia, y en general, la utilidad de las ciencias sociales y humanas requiere de una atencion permanente, ya que es evidente el desprecio que en muchas ocasiones se percibe hacia esta en los discursos politicos y en las relaciones de poder. La historia todavia es vista como una recopilacion arcaica de datos, que debe reposar en los anqueles ocultos de las bibliotecas y que sus saneres no son practicos para el mundo actual.
+		Con estos antecedentes es notorio que existe un vacío en la enseñanza y apropiación de la Historia Regional por parte de los colombianos.</p>
+	</div>
+	<div id="divPerg2">
+		<h2 id="ObjetivoTitulo">¿Que haremos para solucionarlo?</h2>
+		<p id="ObjetivoTexto">Desarrollar una aplicacion didactica que permita reforzar y evaluar generando un mayor interes en estudiantes de la institucion educativa Francisco Antonio Zea
+	  <b><br><br> <a id="nn" href="https://es.calameo.com/read/007220542b523dbe85db0">Mira más de nosotros!!!!</a></b>  
+		</p>
+		
+		<img src="img/pergamino.png" id="perg2" class="perg">
+	</div>
+		<img src="img/TarroYPluma.png" id="TarroYPluma">
+	<div id="brujula">
+		<a href="Bolas Locas/index.html">
+			<img src="img/brujulaMine.webp" id="brujulaMine">
+		</a>
+	</div>
+</body>
+</html>

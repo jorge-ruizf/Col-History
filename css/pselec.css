@@ -1,0 +1,65 @@
+body{
+	background-image:url("img/fondo1.png"); 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	font-family: cursive;
+
+}
+
+.link{
+	
+	font-size: 15px;
+	background-color: rgba(255, 255, 255, 0.7);
+	border: 3px ;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	font-size: 15px;
+	padding: 4px;
+	border-radius: 7px;
+	font-family:"serif" ,cursive , bold ;}
+
+	.link:hover { 
+	background-color: rgba(214, 234, 248, 0.7);  
+	transition: all 0.5s; 
+	font-size: 17px; }
+}
+#atras{
+	
+	background-image: url("img/cuadro.jpeg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	font-size: 15px;;
+	padding: 5px;
+
+}
+.boton {
+	
+	background-color: rgba(255, 255, 255, 0.7);
+	border: 3px dashed black;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	padding: 5px;
+	border-radius: 15px;
+	font-family:"serif" ,cursive , bold ;
+	margin-right: 30px;}
+
+
+.boton:hover { 
+	transform:  scale(1.9);
+	background-color: rgba(214, 234, 248, 0.7);  
+	transition: all 0.5s; 
+	transform:  scale(1.9);
+}
+
+h2{
+	font-family: cursive;
+}

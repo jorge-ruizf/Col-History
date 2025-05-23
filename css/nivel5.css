@@ -1,0 +1,82 @@
+/* nivel5.css */
+.contenedor::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.contenedor::-webkit-scrollbar:vertical {
+    width:10px;
+}
+		body{
+		background-image:url("../img/fondo1.png"); 
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+		font-family: cursive;
+		padding: 5px;
+		scroll-behavior: none;
+		overflow-x: hidden;
+
+		}
+
+		h1, h3 {
+			margin-left: 250px;
+		}
+
+		h3 {
+			padding: 5px;
+			width: 200px;
+		}
+
+		div#Laberinto {
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+
+
+		img#Laberinto {
+			width: 400px;
+		}
+
+		.boton{
+			background-color: white;
+			padding: 5px;
+			border-radius: 5px;
+			border: 2px black dashed;
+			text-decoration: none;
+			background-size: cover;
+			text-decoration: none;
+			color: rgb(0, 0, 0);
+			font-size: 20px;
+			transition: 0.5s;
+		}
+
+		.boton:hover {
+			color: white;
+			background-color: black;
+			border: 2px white dashed;
+		}
+
+
+		._jeb {
+			transition: 1s;
+			animation-duration: 5s;
+			animation-name: _jeb;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes _jeb{
+			0% {
+				color: blue;
+			}
+
+			50% {
+				color: red;
+			}
+
+			100% {
+				color: blue;
+			}
+		}

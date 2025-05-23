@@ -1,0 +1,103 @@
+body{
+    background-image:url("../img/fondo1.png"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: cursive;
+    padding: 5px;
+
+}
+
+
+.boton{
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px black dashed;
+    text-decoration: none;
+    background-size: cover;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.boton:hover {
+    /*color: white;*/
+    /*background-color: black;*/
+    /*border: 2px white dashed;*/
+    filter: invert(100%);
+}
+
+h2 {
+    text-indent: 2em;
+}
+
+div#CentroControl{
+    position: absolute;
+    top: 90%;
+    left: 42%;
+}
+
+._jeb {
+    transition: 1s;
+    animation-duration: 5s;
+    animation-name: _jeb;
+    animation-iteration-count: infinite;
+}
+
+@keyframes _jeb {
+    0% {
+        color: blue;
+    }
+
+    50% {
+        color: red;
+    }
+
+    100% {
+        color: blue;
+    }
+}
+span{
+    font-size: 20px;
+   }
+   
+   div#content{
+       margin-top:10px;
+   }
+  
+   div#conf{
+       
+       padding-bottom:10px;
+   }
+   
+   table{
+       border:2px solid rgb(0, 0, 255); 
+       box-shadow:1px 1px 8px rgb(255, 255, 0),-1px -1px 8px rgb(255, 255, 0), 1px -1px 8px rgb(0, 0, 255), -1px 1px 8px rgb(255, 0, 0);
+       -webkit-box-shadow:1px 1px 8px rgb(2255, 255, 0),-1px -1px 8px rgb(255, 255, 0), 1px -1px 8px rgb(0, 0, 255), -1px 1px 8px rgb(255, 0, 0);
+       border-collapse:collapse;
+       /* width: 40%;
+       height: 40%; */
+   }
+   
+   td.pieza{
+       background:url(../img/gaitan2.png); 
+       transition:.3s ease-in-out; -moz-transition:.3s ease-in-out; 
+       -webkit-transition:.3s ease-in-out; -o-transition:.3s ease-in-out; 
+       cursor:pointer;
+   }
+
+   #sig{
+       display: none;
+   }
+   
+   /* div.posic{
+       background:#FFF; 
+       padding:5px; border:1px solid #00e800; 
+       width:150px; position:absolute; 
+       top:70px; overflow:auto; 
+       min-height:200px; 
+       max-height:250px} */
+   

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>ColHistory 2.0|nivel2</title>
+	<link rel="icon" href="img/logosimp.png">
+	<style type="text/css">
+		body{
+		    background-image:url("img/fondo1.png"); 
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		    background-attachment: fixed;
+		    background-position: center center;
+		    font-family: cursive;
+		    padding: 5px;
+
+		}
+		div#header {
+		    text-indent: 16em;
+		}
+		._jeb {
+		    transition: 1s;
+		    animation-duration: 5s;
+		    animation-name: _jeb;
+		    animation-iteration-count: infinite;
+		}
+
+		@keyframes _jeb {
+		    0% {
+		        color: blue;
+		    }
+
+		    50% {
+		        color: red;
+		    }
+
+		    100% {
+		        color: blue;
+		    }
+		}
+		.boton{
+		    background-color: white;
+		    padding: 5px;
+		    border-radius: 5px;
+		    border: 2px black dashed;
+		    text-decoration: none;
+		    background-size: cover;
+		    text-decoration: none;
+		    color: rgb(0, 0, 0);
+		    font-size: 20px;
+		    transition: 0.5s;
+		}
+
+		.boton:hover{
+			filter: invert(100%);
+		}
+/*
+		#sig{
+			display: none;
+		}
+*/
+		div#CentroControl{
+		    position: absolute;
+		    left: 42%;
+		}
+
+
+		#comprobar {
+		    display: inline-flex;
+		    align-items: center;
+		    justify-content: center;
+		    width: 235px;
+		    height: 50px;
+		    background: #141414;
+		    color: #fff;
+		    font-family: cursive;
+		    font-size: 20px;
+		    font-weight: 500;
+		    border: none;
+		    cursor: pointer;
+		    transition: .3s ease all;
+		    border-radius: 7px;
+		    position: relative;
+		    overflow: hidden;
+		}
+
+		#comprobar span{
+		    position: relative;
+		    z-index: 2;
+		    transition: .3s ease all;
+		}
+
+		#comprobar::after{
+		    content: "";
+		    width: 100%;
+		    position: absolute;
+		    z-index: 1;
+		    top: 0;
+		    left: calc(-100% - 80px);
+		    border-right: 50px solid transparent;
+		    border-bottom: 50px solid #286cff;
+		    
+		    transition: .4s ease-in-out all;
+		}
+
+		#comprobar:hover::after {
+		    left: 0;
+		}
+
+		._jeb {
+		    transition: 1s;
+		    animation-duration: 5s;
+		    animation-name: _jeb;
+		    animation-iteration-count: infinite;
+		}
+
+		#cajaimagenes, #consola{
+		    margin: auto;
+		    width: 670px;
+		    height: 115px;  
+		    border: 2px solid #B40431;
+		    
+		    
+		}
+
+		#cajaimagenes{
+		    margin-top: 5%;
+		    height: 120px;
+		    padding: 10px;
+		}
+
+		#consola{
+		    display: none;
+		}
+
+
+		img{
+		    float: center;
+		    width: 150px;
+		    margin: 5px;
+		}
+
+		#respuestas{
+		    margin: auto;
+		    width: 700px;
+		    height: 170px;   
+		    border: 2px solid #B40431;
+		    margin-top: 50px;
+		    
+		}
+		.zonadestino{
+		    float: left;
+		    width: 160px;
+		    height: 150px;
+		    margin: 5px;
+		    padding: 0px;
+		    border: 2px  solid  #0000FF;
+		}
+
+		#sig{
+			display: none;
+		}
+
+
+		#irMenu {
+			position: fixed;
+			right: -5px;
+			transform: translate(10px, 0px);
+		}
+
+		#irMenuText {
+			position: absolute;
+			z-index: 21;
+			margin-left: 50px;
+			margin-top: 35px;
+			color: white;
+			font-size: 50px;
+			font-weight: bold;
+			-webkit-text-stroke: 1px gray;
+		}
+
+		#banderaC {
+			transform: scaleX(-1);
+			z-index: 20;
+			width: 205px;
+		}
+
+	</style>
+</head>
+<body>
+	<a id="irMenu" href="menu.html"><div id="irMenuText">menu</div><img src="Bandera de Colombia animada simple.gif" alt="Bandera Colombiana" id="banderaC"></a>
+
+	<div id="header">
+		<h1 class="_jeb">NIVEL 2</h1>
+		<h3 class="_jeb">UBICA LA IMAGEN DONDE CORRESPONDA</h3>
+	</div>
+	<div id="principal">
+
+	    
+		<section id="cajaimagenes">
+			<img id="1" src="img/casaAP.jpeg"/>
+			<img id="2" src="img/genteAP.jpeg"/>
+			<img id="3" src="img/noticiasAP.jpeg"/>
+			<img id="4" src="img/mapaAP.png"/>
+		</section>
+
+
+		<section id="respuestas">
+			<section class="zonadestino" id="11">
+				<h1 align="center">En este lugar se dio la masacre de las bananeras</h1>
+			</section>
+			<section class="zonadestino" id="22">
+				<h1 align="center">Ocultaron las cifras reales de muertos</h1>
+			</section>
+			<section class="zonadestino" id="33">
+				<h1 align="center">El pueblo se se hizo escuchar de la siguiente manera</h1>
+			</section>
+	            
+			<section class="zonadestino" id="44">
+				<h1 align="center">Fue el lugar especifico en el que ocurrio la masacre</h1>
+			</section>
+		</section>
+			<!-- <a href="../datos nivel 3/DatosNivel3.html"><img class="sig" src="img/BOTON-SIGUIENTE.png"></a> -->
+	</div>
+
+	<br>
+
+	<div id="CentroControl">
+		<button name="comprobar" id="comprobar"><span>Comprobar</span></button>
+		<br><br>
+		<a class="boton" id="ant" href="nivel1.html"><< anterior</a>
+		<a class="boton" id="sig" href="nivel3.html">siguiente >></a>
+	</div>
+
+	<br><br><br><br><br>
+
+
+	<div id="sonidos">
+		<!-- <audio id="correcto" src="audio/correcto.mp3" autoplay></audio> -->
+	</div>
+
+
+	<script type="text/javascript" src="javascript/sweetalert.js"></script>
+	<script type="text/javascript">
+		// /* Documento JavaScript --> Codigo de Emilio :'*/
+
+		//Definimos las variables de entorno o globales
+		var elemento;
+		var elemento_repuesta;
+		var id;
+		var encontro;
+		var src;
+		var solucion;
+		var consola;
+		var boton;
+		var may;
+		var Rbuenas;
+
+		comprobar = document.getElementById("comprobar");
+		sig = document.getElementById("sig");
+
+		comprobar.addEventListener("click", Comprobar, false);
+
+		function iniciar(){
+			// alert("Bienvenido a nuestro arrastra y pega💛💙❤");
+			//Creamos un ARRAY para guardar la solución
+			//de pregunta-respuesta
+			solucion = [144,233,322,411];
+			consola = document.getElementById("consola");
+			conteo = 0;
+			//Seleccionamos todos los objetos img que están en 
+			//el contenedor con el id="cajaimagenes" y los colocamos en un
+			//ARRAY que llamaremos "imagenes" (Preguntas)
+			var imagenes = document.querySelectorAll("#cajaimagenes img");
+			//Colocamos a la escucha las imagenes de ORIGEN
+			for (var i=0; i<imagenes.length; i++){
+				imagenes[i].addEventListener("dragstart", inicia_arrastre, false);
+				imagenes[i].addEventListener("dragend", terminado, false);
+			}
+			//Seleccionamos los objetos DESTINO que están en el
+			//contenedor con id="respuestas" (Respuestas)
+			var respuestas = document.querySelectorAll("#respuestas section");
+			//Colocamos a la escucha los objetos de DESTINO (Objetos de Respuesta)
+			for (var i=0; i<respuestas.length; i++){
+				respuestas[i].addEventListener("dragenter", function (e) {
+					e.preventDefault();},false);
+				respuestas[i].addEventListener("dragover", entrando, false);
+				respuestas[i].addEventListener("drop", soltado, false);
+				respuestas[i].addEventListener("dragleave", saliendo, false);
+			}
+		}
+
+		function inicia_arrastre (e){
+			//alert("Se inició el Arrastre");
+			//Debemos identificar cuál objeto desencadenó la acción
+			elemento = e.target;
+			id =elemento.id;
+			src = elemento.src;
+			//consola.innerHTML = "Pregunta: " + id + " --> " + src;
+			seleccionarElemento(e);
+		}
+
+		function terminado (e){
+			//Debemos identificar cuál objeto desencadenó la acción
+			elemento = e.target;
+
+			caja1=document.getElementById("11");
+			caja2=document.getElementById("22");
+			caja3=document.getElementById("33");
+			caja4=document.getElementById("44");
+
+			if (encontro == 1){
+				conteo++;
+				elemento.style.visibility = "hidden";
+				caja1.innerHTML=`<h1 align="center">En este lugar se dio la masacre de las bananeras</h1>`;
+				caja2.innerHTML=`<h1 align="center">Ocultaron las cifras reales de muertos</h1>`;
+				caja3.innerHTML=`<h1 align="center">El pueblo se se hizo escuchar de la siguiente manera</h1>`;
+				caja4.innerHTML=`<h1 align="center">Fue el lugar especifico en el que ocurrio la masacre</h1>`;
+			}else{
+				// elemento_respuesta.style.background = "#FFFFFF";
+				caja1.innerHTML=`<h1 align="center">En este lugar se dio la masacre de las bananeras</h1>`;
+				caja2.innerHTML=`<h1 align="center">Ocultaron las cifras reales de muertos</h1>`;
+				caja3.innerHTML=`<h1 align="center">El pueblo se se hizo escuchar de la siguiente manera</h1>`;
+				caja4.innerHTML=`<h1 align="center">Fue el lugar especifico en el que ocurrio la masacre</h1>`;
+			}
+			seleccionarElemento(e);
+		}
+
+		function entrando (e){
+			//alert("Entrando");
+			e.preventDefault();
+			elemento_repuesta = e.target;
+			var id_repuesta = elemento_repuesta.id;
+			//nsola.innerHTML = "Entrando --> " + id + "a Respuesta --> " + id_repuesta;
+			//Buscamos si la respuesta es correcta:
+			//Verificando si la pareja pregunta+respuesta
+			//está en el Array ---> Solucion
+			var buscar = id + id_repuesta;
+			encontro = 0;
+			for (var i=0; i<solucion.length; i++){
+				if (buscar == solucion[i]){
+					encontro = 1; //Se encontro la respuesta correcta
+				}
+			}
+
+			caja1=document.getElementById("11");
+			caja2=document.getElementById("22");
+			caja3=document.getElementById("33");
+			caja4=document.getElementById("44");
+
+			if (encontro == 1){
+			//consola.innerHTML = " **** CORRECTO...!!!"
+				elemento_repuesta.style.background = "rgba(8,252,25,0.8)";
+			}else{
+				//var consola.innerHTML = " **** FALSO...!!!"
+				elemento_repuesta.style.background = "#fa0d29";
+			e.preventDefault();
+			elemento_repuesta = e.target;
+			elemento_repuesta.style.background = "#FFFFFF";
+			caja1.innerHTML=` `;
+			caja2.innerHTML=` `;
+			caja3.innerHTML=` `;
+			caja4.innerHTML=` `;
+			}
+		}
+
+		function soltado (e){
+			e.preventDefault();
+			elemento_repuesta = e.target;
+			if (encontro == 1){
+				boton=boton+1;
+				if (boton==4) {
+					function sirva(){
+					may=document.getElementById("may").style.display="block";
+					
+					Rbuenas++;
+					if (Rbuenas==3) {
+						alert("12345");
+					}
+				
+						sirva();
+					}
+				}
+				elemento_repuesta.innerHTML = `<img src="${src}"/>`;
+			}	
+					
+		}
+				//Asignamos y colocamos la imagen en la 
+				//zona DESTINO
+				
+			
+			//consola.innerHTML += elemento_repuesta.innerHTML;
+
+
+		function saliendo(e) {
+			//Si queremos que no haga nada el navegador
+			//(resetear) el comportamiento por defecto
+			var caja1=document.getElementById("11");
+			var caja2=document.getElementById("22");
+			var caja3=document.getElementById("33");
+			var caja4=document.getElementById("44");
+			e.preventDefault();
+			elemento_repuesta = e.target;
+			elemento_repuesta.style.background = "#FFFFFF";
+			caja1.innerHTML=`<h1 align="center">En este lugar se dio la masacre de las bananeras</h1>`;
+			caja2.innerHTML=`<h1 align="center">Ocultaron las cifras reales de muertos</h1>`;
+			caja3.innerHTML=`<h1 align="center">El pueblo se se hizo escuchar de la siguiente manera</h1>`;
+			caja4.innerHTML=`<h1 align="center">Fue el lugar especifico en el que ocurrio la masacre</h1>`;
+		}
+
+		//*************************************************************
+		//Definimos las variables para la información del moviento
+
+		var elementSelect = 0;
+		var currentX = 0;
+		var currentY = 0;
+		var currentPosX = 0;
+		var currentPosY = 0;
+
+		function seleccionarElemento (evt){
+			//Guardamos el elemento seleccionado
+			currentX = evt.clientX;
+			currentY = evt.clientY;
+			//consola.innerHTML = " X: " + currentX + " - " + "Y: " + currentY;
+
+			//Obtenemos las coordenadas de la pieza a mover
+			currentPosX = parseFloat(elementSelect.getAttribute("x"));
+			currentPosY = parseFloat(elementSelect.getAttribute("y"));
+			//Agregamos el evento del movimiento a la imagen seleccionada
+			elementSelect.setAttribute("onmousemove", "moverElemento(evt)");
+		}
+
+		function moverElemento(evt) {
+			//consola.innerHTML += "";
+			var dx = evt.clientX - currentX;
+			var dy = evt.clientY - currentY;
+			//Para que el elemento se mueva actualizamos
+			//y asignamos la nueva posición
+			currentPosX = currentPosX + dx;
+			currentPosY = currentPosY + dy;
+			//Volvemos a guardar la posición del mouse
+			currentX = evt.clientX;
+			currentY = evt.clientY;
+			//Al soltar el click del mouse debemos soltar
+			//la imagen elegida
+			elementSelect.setAttribute("onmouseout", "deseleccionarElemento(evt)");
+			elementSelect.setAttribute("onmouseup", "deseleccionarElemento(evt)");
+		}
+
+
+		function Comprobar(){
+			if(conteo == 4){
+				swal("Segundo Nivel Completado", "Ahora solo dale al boton siguiente para continuar", "success", {
+
+					buttons: ["Continuar","Reintentar"]
+
+				});
+				sonidos.innerHTML = "";
+				sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay></audio>`;
+
+				sig.style.display = "inline";
+			} else{
+			swal("¡Comprueba tus respuestas!", "Te has equivocado en al menos una o mas opciones", "warning", {
+
+				buttons: ["Continuar","Reintentar"]
+
+			});
+			sonidos.innerHTML = "";
+			sonidos.innerHTML += `<audio id="erroneo" src="audio/erroneo.mp3" autoplay></audio>`;
+			}
+		}
+
+
+
+		window.addEventListener("load", iniciar, false);
+	</script>
+</body>
+</html>

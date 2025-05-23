@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,COLOMBIA, HISTORIA, GEOGRAFIA "/>
+	<meta name="description" content="aplicacion historia de colombia">
+	<title>ColHistory 2.0|nivel3</title>
+	<link rel="icon" href="img/logosimp.png">
+	<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+	<style type="text/css">
+		body{
+		    background-image:url("img/fondo1.png"); 
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		    background-attachment: fixed;
+		    background-position: center center;
+		    font-family: cursive;
+		    padding: 5px;
+
+		}
+
+		div#header {
+			text-indent: 16em;
+		}
+
+		.boton{
+		    background-color: white;
+		    padding: 5px;
+		    border-radius: 5px;
+		    border: 2px black dashed;
+		    text-decoration: none;
+		    background-size: cover;
+		    text-decoration: none;
+		    color: rgb(0, 0, 0);
+		    font-size: 20px;
+		    transition: 0.5s;
+		}
+
+		.boton:hover {
+		    /*color: white;*/
+		    /*background-color: black;*/
+		    /*border: 2px white dashed;*/
+		    filter: invert(100%);
+		}
+
+		h2 {
+		    text-indent: 2em;
+		}
+
+		div#CentroControl{
+		    position: absolute;
+		    top: 90%;
+		    left: 42%;
+		    margin-top: -40px;
+		}
+
+		._jeb {
+		    transition: 1s;
+		    animation-duration: 5s;
+		    animation-name: _jeb;
+		    animation-iteration-count: infinite;
+		}
+
+		@keyframes _jeb {
+		    0% {
+		        color: blue;
+		    }
+
+		    50% {
+		        color: red;
+		    }
+
+		    100% {
+		        color: blue;
+		    }
+		}
+		span{
+		    font-size: 20px;
+		   }
+		   
+		   div#content{
+		       margin-top:10px;
+		   }
+		  
+		   div#conf{
+		       
+		       padding-bottom:10px;
+		   }
+		   
+		   table{
+		       border:2px solid rgb(0, 0, 255); 
+		       box-shadow:1px 1px 8px rgb(255, 255, 0),-1px -1px 8px rgb(255, 255, 0), 1px -1px 8px rgb(0, 0, 255), -1px 1px 8px rgb(255, 0, 0);
+		       -webkit-box-shadow:1px 1px 8px rgb(2255, 255, 0),-1px -1px 8px rgb(255, 255, 0), 1px -1px 8px rgb(0, 0, 255), -1px 1px 8px rgb(255, 0, 0);
+		       border-collapse:collapse;
+		       /* width: 40%;
+		       height: 40%; */
+		   }
+		   
+		   td.pieza{
+		       background:url(img/gaitan2.png); 
+		       transition:.3s ease-in-out; -moz-transition:.3s ease-in-out; 
+		       -webkit-transition:.3s ease-in-out; -o-transition:.3s ease-in-out; 
+		       cursor:pointer;
+		   }
+
+		   #sig{
+		       display: none;
+		   }
+
+		   #conf{
+		   	visibility: hidden;
+		   	margin-top: -40px;
+		   }
+
+		   div#val_bp_1{	display: none;}
+		   div#val_bp_2{	display: none;}
+		   div#val_bp_3{	display: none;}
+		   div#val_bp_4{	display: none;}
+		   div#val_bp_5{	display: none;}
+		   div#val_bp_6{	display: none;}
+		   div#val_bp_7{	display: none;}
+		   div#val_bp_8{	display: none;}
+		   div#val_bp_9{	display: none;}
+
+		   
+		#irMenu {
+			position: fixed;
+			right: -5px;
+		}
+
+		#irMenuText {
+			position: absolute;
+			z-index: 21;
+			margin-left: 50px;
+			margin-top: 35px;
+			color: white;
+			font-size: 50px;
+			font-weight: bold;
+			-webkit-text-stroke: 1px gray;
+		}
+
+		#banderaC {
+			transform: scaleX(-1);
+			z-index: 20;
+		}
+
+	</style>
+</head>
+<body>
+	<a id="irMenu" href="menu.html"><div id="irMenuText">menu</div><img src="Bandera de Colombia animada simple.gif" alt="Bandera Colombiana" id="banderaC"></a>
+
+	<div id="header">
+		<h1 class="_jeb">NIVEL 3</h1>
+		<h3 class="_jeb">RESUELVE EL PUZZLE</h3>
+	</div>
+        <div id='content' align='center'>
+         <center>
+            <div id='conf'>
+                <span>Nro de piezas:</span>
+                <select id='piezas'>
+                    <option value='9'>9</option>
+                </select><input type='button' id='barajar' value='Barajar' />
+                <div>
+                    <span>Pulsa en un cuadro y luego en otro para intercambiar sus posiciones!!</span>
+                </div>
+            </div>
+         </center>
+        </div>
+
+	<div id="CentroControl">
+		<!-- <button name="comprobar" id="comprobar"><span>Comprobar</span></button> -->
+		<br><br>
+		<a class="boton" id="ant" href="nivel2.html"><< anterior</a>
+		<a class="boton" id="sig" href="nivel4.html">siguiente >></a>
+	</div>
+
+	<div id="sonidos">
+		<!-- <audio id="correcto" src="audio/correcto.mp3" autoplay></audio> -->
+	</div>
+
+	<script type="text/javascript" src="javascript/sweetalert.js"></script>
+	<script type="text/javascript">
+		
+		let sig = document.getElementById("sig");
+
+		var select = false;
+		var c = "inc";
+		var pos_s = "";
+		var id_s = "";
+
+		var rompecabezas = {
+		  _arr_pos_r : new Array(),
+		  _arr_pos_a : new Array(),
+		  
+		  _mostrar: function(){
+		  	rompecabezas._arr_pos_r.length = 0;
+				var piezas = rompecabezas._get("piezas").value;
+				// alert(piezas);
+				// var piezas = "9";
+				var tb = document.createElement('table');
+				tb.border = 1;
+				tb.align = 'center';
+				tb.cellPadding = 0;
+				tb.cellSpacing = 0;
+				var dp = document.createElement('div');
+				dp.id = 'posiciones';
+				dp.className = 'posic';
+				var ar = Math.sqrt(piezas);
+				var c = 0;
+				var tam_img = 300;
+				var pos_img = tam_img / ar;
+				for(var fil=1;fil<=ar;fil++){
+					var tr = document.createElement('tr');
+					for(var cel=1;cel<=ar;cel++){
+						c++;
+						var td = document.createElement('td');
+						td.className = 'pieza';
+						td.id = 'pos_'+c;
+						td.style.width = pos_img+'px';
+						td.style.height = pos_img+'px';
+						var dbp = document.createElement('div');
+						dbp.id = 'val_bp_'+c;
+						var p = Math.round(((pos_img*cel)-pos_img) * -1)+'px '+Math.round(((fil * pos_img)-pos_img) * -1)+'px';
+						td.style.backgroundPosition = p;
+						rompecabezas._arr_pos_r.push(p);
+						dbp.innerHTML = p;
+						dp.appendChild(dbp);
+						td.onclick = function(){
+							rompecabezas._cambiaBGP(this.id);
+							rompecabezas._compruebaFin();
+						}
+						tr.appendChild(td);
+					}
+					tb.appendChild(tr);
+				}
+				if(!rompecabezas._get("div_content")){
+					var cont = document.createElement('div');
+					cont.id = 'div_content';
+					cont.appendChild(tb);
+					cont.appendChild(dp);
+					document.body.appendChild(cont);
+				}else{
+					rompecabezas._get("div_content").innerHTML = '';
+					rompecabezas._get("div_content").appendChild(tb);
+					rompecabezas._get("div_content").appendChild(dp);
+					rompecabezas._get("posiciones").removeClass('posic');
+					rompecabezas._get("posiciones").innerHTML = '';
+					rompecabezas._get("posiciones").className = 'posic';
+				}
+			},
+			
+			_barajar: function(){
+				var num_alt = null;
+				var arr = new Array();
+				var resp = "no";
+				var i = -1;
+				var repite = "no";
+				var pie = parseInt(rompecabezas._get("piezas").value);
+				var pie1 = pie + 1;
+				while(arr.length < pie){
+					repite = "no";
+					num_alt = Math.floor(Math.random()*pie1);
+					if(num_alt != 0){
+						if(arr.length == 0){
+							i++;
+							arr[i] = num_alt;
+						}else{
+							for(j=0;j<=arr.length-1;j++){
+								if(arr[j] == num_alt){
+									repite = "si";
+								}
+							}
+							if(repite != "si"){
+								i++;
+								arr[i] = num_alt;
+							}
+						}
+					}
+				}
+			
+				var id = 0;	
+				for(k=0; k<=arr.length-1;k++){
+					id = k-(-1);
+					rompecabezas._get("pos_"+id).style.backgroundPosition = rompecabezas._get("val_bp_"+arr[k]).innerHTML;
+				}
+			},
+			
+			_cambiaBGP: function(id){
+				if(select == false){
+					pos_s = rompecabezas._get(id).style.backgroundPosition;
+					id_s = id;
+					select = true;
+		      rompecabezas._get(id_s).style.boxShadow = '1px 1px 14px #FFF,-1px -1px 14px #FFF, 1px -1px 14px #FFF,-1px 1px 14px #FFF';
+				}else{
+					var pos_n =  rompecabezas._get(id).style.backgroundPosition;
+					var id_n = id;
+					c = "com";
+					select = false;
+				}
+			 
+				if(c == "com"){ rompecabezas._get(id_n).style.backgroundPosition = pos_s; rompecabezas._get(id_s).style.backgroundPosition = pos_n;
+					c = "inc";
+		      rompecabezas._get(id_s).style.boxShadow = '';
+				}
+			},
+			
+			_compruebaFin: function(e){
+				var pie = parseInt(rompecabezas._get("piezas").value);
+				var fin = false;
+				rompecabezas._arr_pos_a.length = 0;
+				for(var i=1;i<=pie;i++){
+					rompecabezas._arr_pos_a.push(rompecabezas._get("pos_"+i).style.backgroundPosition);
+				}
+				for(var j=0;j<rompecabezas._arr_pos_r.length;j++){
+					if(rompecabezas._arr_pos_r[j] != rompecabezas._arr_pos_a[j]){
+						fin = false;
+						break;
+					}else{
+						fin = true;
+					}
+				}
+				
+				if(fin){
+					// alert("LO RESOLVISTE COMPADRE!!")
+
+					swal("Tercer Nivel Completado", "Ahora solo dale al boton siguiente para continuar", "success", {
+
+						buttons: ["Continuar","Reintentar"]
+
+					});
+					sonidos.innerHTML = "";
+					sonidos.innerHTML += `<audio id="correcto" src="audio/correcto.mp3" autoplay></audio>`;
+
+
+					// sig = document.getElementById("sig");
+					sig.style.display = "inline";
+				}
+			},
+			
+			_get: function(id){
+				return document.getElementById(id);
+			}
+		};
+		// $("#sig").click(() => {
+		// 	if ($(".completada").length = 0) {
+		// 	  alert("ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		// 	  return false;
+		// 	}
+		// 	else {
+		// 	  // Hacer lo que se supone que debe hacer el boton de siguiente
+		// 	  document.location.href = "diploma.html";
+		// 	}
+		//   });
+
+		window.onload = function(){
+			rompecabezas._mostrar();
+		  rompecabezas._barajar();
+		  rompecabezas._get("piezas").onchange = function(){
+		    rompecabezas._mostrar();
+		  }
+		    rompecabezas._get("barajar").onclick = function(){
+		      rompecabezas._barajar();
+		    }
+		}
+	</script>
+</body>
+</html>
